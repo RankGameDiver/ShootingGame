@@ -3,7 +3,8 @@
 #include "InputHandler.h"
 
 class CPlayerInfo : public CBaseObject, // PlayerInfo(플레이어 정보)는 BaseObject와 IInputHandler를 상속받고 있다
-	              public IInputHandler
+					public IInputHandler,
+					public CFrameSkip
 {
 protected:
 	bool m_bIsActive; // 움직이고 있는지 확인
@@ -14,9 +15,16 @@ protected:
 	bool m_bIsPressUp; // 위쪽 화살표
 	bool m_bIsPressDown; // 아래쪽 화살표
 
+	bool m_animationFrame;
+
+	int frame;
+
 	/*D3DVECTOR m_vPos;
 	D3DVECTOR m_vScale;*/
 	int m_nLife; // 플레이어 생명
+
+private:
+	CFrameSkip*		m_frameSkip;
 
 public:
 	CPlayerInfo();

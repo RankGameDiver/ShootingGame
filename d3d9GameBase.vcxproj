@@ -78,11 +78,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BananaInfo.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="BaseRender.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="d3d9GameBase.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FrameSkip.cpp" />
     <ClCompile Include="Gdi.cpp" />
     <ClCompile Include="GraphicManager.cpp" />
@@ -101,11 +101,11 @@
     <ClCompile Include="Vector2d.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BananaInfo.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BaseRender.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="d3d9GameBase.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="FrameSkip.h" />
     <ClInclude Include="Gdi.h" />
     <ClInclude Include="GraphicManager.h" />

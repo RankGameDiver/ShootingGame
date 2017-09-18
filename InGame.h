@@ -11,7 +11,7 @@ private:
 	float	m_fTime;
 
 	CPlayerInfo*	m_pPlayer;
-	CBananaInfo*	m_eEnemy;
+	CEnemy*	m_eEnemy;
 
 public:
 	CInGame(void);

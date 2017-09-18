@@ -30,7 +30,7 @@
 #define MAX_TEXTURE				(128)
 #define MAX_PLAYER_LIFE			(3)
 #define MAX_ENEMY_LIFE			(3)
-#define MAX_PLAYER_FRAME		(3)
+#define MAX_PLAYER_FRAME		(8)
 #define MAX_PLAYER_SPEED		(400.0f)
 #define SCREEN_WIDTH			(1024)
 #define SCREEN_HEIGHT			(800)
@@ -51,7 +51,7 @@
 #include "InputManager.h"
 #include "ImageManager.h"
 #include "PlayerInfo.h"
-#include "BananaInfo.h"
+#include "Enemy.h"
 #include "MainProc.h"
 #include "Intro.h"
 #include "Menu.h"

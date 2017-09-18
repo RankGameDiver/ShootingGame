@@ -21,9 +21,8 @@ bool CInGame::Initialize()
 	m_pPlayer->Load("./Images/주인공.png");
 	g_pInputManager->SetInputHandler(m_pPlayer);
 
-	m_eEnemy = new CBananaInfo();
-	m_eEnemy->Initialize();
-	m_eEnemy->Load("./Images/바나나1.png");
+	m_eEnemy = new CEnemy();
+	m_eEnemy->Initialize(eEnemyKind_Banana);
 
 	return true;
 }
@@ -31,7 +30,7 @@ bool CInGame::Initialize()
 void CInGame::Terminate()
 {
 	m_pPlayer->Terminate();
-	//m_eEnemy->Terminate();
+	m_eEnemy->Terminate();
 	CBaseRender::Terminate();
 }
 
@@ -40,7 +39,7 @@ bool CInGame::Pulse()
 	CBaseRender::Pulse();
 	
 	m_pPlayer->Pulse();
-	//m_eEnemy->Pulse();
+	m_eEnemy->Pulse();
 
 	return true;
 }
@@ -49,5 +48,5 @@ void CInGame::Render()
 {
 	CBaseRender::Render();
 	m_pPlayer->Render();
-	//m_eEnemy->Render();
+	m_eEnemy->Render();
 }

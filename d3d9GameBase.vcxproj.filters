@@ -102,8 +102,8 @@
     <ClCompile Include="InGame.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="BananaInfo.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,8 +185,8 @@
     <ClInclude Include="InGame.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="BananaInfo.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="Enemy.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

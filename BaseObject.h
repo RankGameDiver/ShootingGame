@@ -21,6 +21,7 @@ protected:
 
 	CImageInfo m_kCollision;
 	CImageInfo* m_pImageInfo;
+	CImageInfo* m_eImageInfo;
 
 public:
 	CBaseObject();

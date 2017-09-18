@@ -11,6 +11,8 @@ CPlayerInfo::CPlayerInfo()
 	m_bIsPressUp = false;
 	m_bIsPressDown = false;
 
+	frame = 0;
+
 	m_nLife = MAX_PLAYER_LIFE;
 
 	m_pImageInfo = new CImageInfo[MAX_PLAYER_FRAME];
@@ -27,15 +29,10 @@ bool CPlayerInfo::Initialize()
 	CBaseObject::Initialize();
 
 	//	기본 동작 애니메이션
-	m_pImageInfo[0].SetRect(0, 0, 64, 100);
-	m_pImageInfo[1].SetRect(64, 0, 64, 100);
-	m_pImageInfo[2].SetRect(128, 0, 64, 100);
-	m_pImageInfo[3].SetRect(192, 0, 64, 100);
-	m_pImageInfo[4].SetRect(256, 0, 64, 100);
-	m_pImageInfo[5].SetRect(320, 0, 64, 100);
-	m_pImageInfo[6].SetRect(384, 0, 64, 100);
-	m_pImageInfo[7].SetRect(448, 0, 64, 100);
-	
+	for (int i = 0; i < 8; i++)
+	{
+		m_pImageInfo[i].SetRect(i * 64, 0, 64, 100);
+	}
 
 	m_vOffset.x = -32.0f;
 	m_vOffset.y = -32.0f;
@@ -49,6 +46,9 @@ bool CPlayerInfo::Initialize()
 
 	SetPos(m_vPos);
 	SetScale(m_vScale);
+
+	m_animationFrame = true;
+	m_frameSkip->SetFramePerSec(60.0f);
 
 	m_eActionState = eActionState_Normal;
 
@@ -91,17 +91,26 @@ bool CPlayerInfo::Pulse()
 		m_vPos.y += fOffset;
 	}
 
-	// 입력받는 값에 따라서 이미지 출력(앞이나 뒤로 이동할때는 현재 없음)
-	switch (m_eActionState)
+	// 애니메이션 프레임 속도 조절(미완성)
+	//m_kImageInfo = m_pImageInfo[frame];
+	//while (m_animationFrame)
+	//{
+	//	m_frameSkip->Update(1.0f);
+	//	if (m_frameSkip->IsFrameSkip() == false)
+	//	{
+	//		m_animationFrame = false;
+	//	}
+	//	else
+	//	{
+
+	//	}
+	//}
+
+	frame++;
+
+	if (frame > 7)
 	{
-	case eActionState::eActionState_Normal:
-		m_kImageInfo = m_pImageInfo[0];
-		break;
-	case eActionState::eActionState_Left:
-		m_kImageInfo = m_pImageInfo[1];
-		break;
-	case eActionState::eActionState_Right:
-		m_kImageInfo = m_pImageInfo[2];
+		frame = 0;
 	}
 
 	CBaseObject::Pulse();
