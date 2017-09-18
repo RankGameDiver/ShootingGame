@@ -1,6 +1,8 @@
 #pragma once
 #include "BaseRender.h"
-class CBaseObject :	public CBaseRender // CBaseObject는 CBaseRender을 상속받는다
+class CBaseObject :	public CBaseRender,
+					public CTimeManager,
+					public CFrameSkip
 {
 public:
 	enum eActionState

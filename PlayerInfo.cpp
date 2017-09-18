@@ -11,8 +11,6 @@ CPlayerInfo::CPlayerInfo()
 	m_bIsPressUp = false;
 	m_bIsPressDown = false;
 
-	frame = 0;
-
 	m_nLife = MAX_PLAYER_LIFE;
 
 	m_pImageInfo = new CImageInfo[MAX_PLAYER_FRAME];
@@ -26,7 +24,11 @@ CPlayerInfo::~CPlayerInfo()
 
 bool CPlayerInfo::Initialize()
 {
-	CBaseObject::Initialize();
+	CBaseRender::Initialize();
+	CTimeManager::Initialize();
+
+	m_pGameFrame = new CFrameSkip;
+	m_pGameFrame->SetFramePerSec(60);
 
 	//	기본 동작 애니메이션
 	for (int i = 0; i < 8; i++)
@@ -47,9 +49,6 @@ bool CPlayerInfo::Initialize()
 	SetPos(m_vPos);
 	SetScale(m_vScale);
 
-	m_animationFrame = true;
-	m_frameSkip->SetFramePerSec(60.0f);
-
 	m_eActionState = eActionState_Normal;
 
 	CBaseObject::SetUpCollision();
@@ -65,6 +64,8 @@ void CPlayerInfo::Terminate()
 
 bool CPlayerInfo::Pulse()
 {
+	CTimeManager::Pulse();
+
 	float fOffset = MAX_PLAYER_SPEED * g_pSystem->GetTimeStep();
 
 	m_eActionState = eActionState::eActionState_Normal;
@@ -91,26 +92,24 @@ bool CPlayerInfo::Pulse()
 		m_vPos.y += fOffset;
 	}
 
-	// 애니메이션 프레임 속도 조절(미완성)
-	//m_kImageInfo = m_pImageInfo[frame];
-	//while (m_animationFrame)
-	//{
-	//	m_frameSkip->Update(1.0f);
-	//	if (m_frameSkip->IsFrameSkip() == false)
-	//	{
-	//		m_animationFrame = false;
-	//	}
-	//	else
-	//	{
+	float fTimeStep = CTimeManager::GetTimeStep();
 
-	//	}
-	//}
-
-	frame++;
-
-	if (frame > 7)
+	//// 애니메이션 프레임 속도 조절(미완성)
+	if (m_pGameFrame->Update(fTimeStep))
 	{
-		frame = 0;
+		static unsigned int frame = 0;
+
+		if (frame > 7)
+		{
+			frame = 0;
+		}
+		
+		m_kImageInfo = m_pImageInfo[frame];
+		if (fTimeStep == 5)
+		{
+			frame++;
+			fTimeStep = 0;
+		}
 	}
 
 	CBaseObject::Pulse();

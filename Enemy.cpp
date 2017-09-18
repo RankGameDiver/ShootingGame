@@ -15,7 +15,7 @@ CEnemy::~CEnemy()
 
 bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 {
-	CBaseObject::Initialize();
+	CBaseRender::Initialize();
 
 	switch (m_eEnemyKind)
 	{
