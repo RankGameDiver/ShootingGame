@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1FAFEB1B-4EF8-4991-8A93-31C0187D77AC}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>d3d9GameBase</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BananaInfo.cpp" />
+    <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="BaseRender.cpp" />
+    <ClCompile Include="BaseWindow.cpp" />
+    <ClCompile Include="d3d9GameBase.cpp" />
+    <ClCompile Include="FrameSkip.cpp" />
+    <ClCompile Include="Gdi.cpp" />
+    <ClCompile Include="GraphicManager.cpp" />
+    <ClCompile Include="ImageInfo.cpp" />
+    <ClCompile Include="ImageManager.cpp" />
+    <ClCompile Include="InGame.cpp" />
+    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Intro.cpp" />
+    <ClCompile Include="MainProc.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="PlayerInfo.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="System.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="Vector2d.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BananaInfo.h" />
+    <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="BaseRender.h" />
+    <ClInclude Include="BaseWindow.h" />
+    <ClInclude Include="d3d9GameBase.h" />
+    <ClInclude Include="FrameSkip.h" />
+    <ClInclude Include="Gdi.h" />
+    <ClInclude Include="GraphicManager.h" />
+    <ClInclude Include="ImageInfo.h" />
+    <ClInclude Include="ImageManager.h" />
+    <ClInclude Include="InGame.h" />
+    <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Intro.h" />
+    <ClInclude Include="IScene.h" />
+    <ClInclude Include="MainProc.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="PlayerInfo.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Singleton.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="System.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="Util.h" />
+    <ClInclude Include="Vector2d.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="d3d9GameBase.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="d3d9GameBase.ico" />
+    <Image Include="icon2.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

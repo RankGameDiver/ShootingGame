@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{14732e68-1279-4dc2-a121-f24a7249ead1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{26a31aad-8bb9-475d-82da-68d3a830272d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{31cb3262-88ad-45a0-bfb0-50782f375522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX9">
+      <UniqueIdentifier>{007992c5-36df-4cdc-bf96-36e1ed8cfbc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{a813a9d5-0b46-4b91-8b1c-341458eb81f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{da910c73-2bf7-43e3-a1de-79b879eb96af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{66c662d7-f119-42d2-aa01-dce9069f0abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{61030364-e195-4533-9409-8382d329b30b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{d29418e2-745c-470f-9260-9663fe3a2474}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Gdi.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2d.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameSkip.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicManager.cpp">
+      <Filter>DirectX9</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseWindow.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="d3d9GameBase.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseRender.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="MainProc.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Intro.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInfo.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>DirectX9</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageInfo.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="InGame.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BananaInfo.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Gdi.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2d.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameSkip.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicManager.h">
+      <Filter>DirectX9</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseWindow.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="d3d9GameBase.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseRender.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="MainProc.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Intro.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInfo.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>DirectX9</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageInfo.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="InGame.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BananaInfo.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="d3d9GameBase.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="d3d9GameBase.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="icon2.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
