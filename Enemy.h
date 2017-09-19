@@ -11,6 +11,8 @@ protected:
 
 	int m_nLife; // 몬스터 생명 수
 
+	CFrameSkip*		m_pGameFrame;
+
 public:
 	CEnemy();
 	virtual ~CEnemy();
@@ -73,8 +75,8 @@ __inline D3DXVECTOR3 CEnemy::GetPos() // 시작 위치 반환
 }
 __inline void CEnemy::SetScale() // 크기 지정
 {
-	m_vScale.x = 1.5f;
-	m_vScale.y = 1.5f;
+	m_vScale.x = 1.0f;
+	m_vScale.y = 1.0f;
 	m_vScale.z = 1.0f;
 }
 __inline D3DXVECTOR3 CEnemy::GetScale() // 시작 위치 반환

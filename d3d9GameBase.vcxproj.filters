@@ -105,6 +105,9 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gdi.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

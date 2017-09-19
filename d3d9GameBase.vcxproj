@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="BaseRender.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
@@ -101,6 +102,7 @@
     <ClCompile Include="Vector2d.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BackGround.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BaseRender.h" />
     <ClInclude Include="BaseWindow.h" />

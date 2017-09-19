@@ -42,14 +42,16 @@ bool CPlayerInfo::Initialize()
 	m_vPos.x = 320;
 	m_vPos.y = 240;
 
-	m_vScale.x = 1.5f;
-	m_vScale.y = 1.5f;
+	m_vScale.x = 1.0f;
+	m_vScale.y = 1.0f;
 	m_vScale.z = 1.0f;
 
 	SetPos(m_vPos);
 	SetScale(m_vScale);
 
 	m_eActionState = eActionState_Normal;
+
+	m_pGameFrame = new CFrameSkip();
 
 	CBaseObject::SetUpCollision();
 
@@ -94,10 +96,11 @@ bool CPlayerInfo::Pulse()
 
 	float fTimeStep = CTimeManager::GetTimeStep();
 
-	//// 애니메이션 프레임 속도 조절(미완성)
+	//// 애니메이션 프레임 속도 조절
 	if (m_pGameFrame->Update(fTimeStep))
 	{
 		static unsigned int frame = 0;
+		static float deltaTime = 0;
 
 		if (frame > 7)
 		{
@@ -105,11 +108,12 @@ bool CPlayerInfo::Pulse()
 		}
 		
 		m_kImageInfo = m_pImageInfo[frame];
-		if (fTimeStep == 5)
+		if (deltaTime >= 0.08f)
 		{
 			frame++;
-			fTimeStep = 0;
+			deltaTime = 0;
 		}
+		deltaTime += fTimeStep;
 	}
 
 	CBaseObject::Pulse();

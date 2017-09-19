@@ -9,9 +9,9 @@ class CInGame :
 {
 private:
 	float	m_fTime;
-
+	CBackGround* m_pBackGround;
 	CPlayerInfo*	m_pPlayer;
-	CEnemy*	m_eEnemy;
+	CEnemy*	m_pEnemy;
 
 public:
 	CInGame(void);

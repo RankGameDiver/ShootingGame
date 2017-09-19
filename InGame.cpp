@@ -16,21 +16,27 @@ bool CInGame::Initialize()
 		return false;
 	}
 
+	m_pBackGround = new CBackGround();
+	m_pBackGround->Initialize();
+	m_pBackGround->Load("./Images/인게임배경1.png");
+
 	m_pPlayer = new CPlayerInfo();
 	m_pPlayer->Initialize();
 	m_pPlayer->Load("./Images/주인공.png");
 	g_pInputManager->SetInputHandler(m_pPlayer);
 
-	m_eEnemy = new CEnemy();
-	m_eEnemy->Initialize(eEnemyKind_Banana);
+	m_pEnemy = new CEnemy();
+	m_pEnemy->Initialize(eEnemyKind_Banana);
+	m_pEnemy->Load("./Images/바나나.png");
 
 	return true;
 }
 
 void CInGame::Terminate()
 {
+	m_pBackGround->Terminate();
 	m_pPlayer->Terminate();
-	m_eEnemy->Terminate();
+	m_pEnemy->Terminate();
 	CBaseRender::Terminate();
 }
 
@@ -38,8 +44,9 @@ bool CInGame::Pulse()
 {
 	CBaseRender::Pulse();
 	
+	m_pBackGround->Pulse();
 	m_pPlayer->Pulse();
-	m_eEnemy->Pulse();
+	m_pEnemy->Pulse();
 
 	return true;
 }
@@ -47,6 +54,7 @@ bool CInGame::Pulse()
 void CInGame::Render()
 {
 	CBaseRender::Render();
+	m_pBackGround->Render();
 	m_pPlayer->Render();
-	m_eEnemy->Render();
+	m_pEnemy->Render();
 }

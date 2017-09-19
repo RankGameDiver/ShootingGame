@@ -8,6 +8,7 @@ public:
 		eRenderType_Bullet, // 탄막
 		eRenderType_Player, // 플레이어
 		eRenderType_Enemy, // 적들
+		eRenderType_BackGround // 배경
 	};
 
 	enum eEnemyKind

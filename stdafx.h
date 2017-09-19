@@ -50,6 +50,7 @@
 #include "InputHandler.h"
 #include "InputManager.h"
 #include "ImageManager.h"
+#include "BackGround.h"
 #include "PlayerInfo.h"
 #include "Enemy.h"
 #include "MainProc.h"
