@@ -15,20 +15,6 @@ bool CInGame::Initialize()
 	{
 		return false;
 	}
-
-	m_pBackGround = new CBackGround();
-	m_pBackGround->Initialize();
-	m_pBackGround->Load("./Images/인게임배경1.png");
-
-	m_pPlayer = new CPlayerInfo();
-	m_pPlayer->Initialize();
-	m_pPlayer->Load("./Images/주인공.png");
-	g_pInputManager->SetInputHandler(m_pPlayer);
-
-	m_pEnemy = new CEnemy();
-	m_pEnemy->Initialize(eEnemyKind_Banana);
-	m_pEnemy->Load("./Images/바나나.png");
-
 	return true;
 }
 
