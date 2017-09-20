@@ -84,6 +84,7 @@
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="d3d9GameBase.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="FirstStage.cpp" />
     <ClCompile Include="FrameSkip.cpp" />
     <ClCompile Include="Gdi.cpp" />
     <ClCompile Include="GraphicManager.cpp" />
@@ -108,6 +109,7 @@
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="d3d9GameBase.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="FirstStage.h" />
     <ClInclude Include="FrameSkip.h" />
     <ClInclude Include="Gdi.h" />
     <ClInclude Include="GraphicManager.h" />

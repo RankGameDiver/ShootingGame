@@ -57,6 +57,7 @@
 #include "Intro.h"
 #include "Menu.h"
 #include "InGame.h"
+#include "FirstStage.h"
 #include "System.h"
 
 

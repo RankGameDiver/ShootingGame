@@ -40,20 +40,17 @@ bool CPlayerInfo::Initialize()
 	m_vOffset.y = -32.0f;
 
 	m_vPos.x = 320;
-	m_vPos.y = 240;
+	m_vPos.y = 200;
 
 	m_vScale.x = 1.0f;
 	m_vScale.y = 1.0f;
 	m_vScale.z = 1.0f;
 
-	SetPos(m_vPos);
-	SetScale(m_vScale);
-
 	m_eActionState = eActionState_Normal;
 
 	m_pGameFrame = new CFrameSkip();
 
-	CBaseObject::SetUpCollision();
+	CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, 64, 100);
 
 	return true;
 }
@@ -96,7 +93,7 @@ bool CPlayerInfo::Pulse()
 
 	float fTimeStep = CTimeManager::GetTimeStep();
 
-	//// 애니메이션 프레임 속도 조절
+	// 애니메이션 프레임 속도 조절
 	if (m_pGameFrame->Update(fTimeStep))
 	{
 		static unsigned int frame = 0;
@@ -116,6 +113,13 @@ bool CPlayerInfo::Pulse()
 		deltaTime += fTimeStep;
 	}
 
+	Vector2D checkPos{ 10, 10 };
+	if (CheckCollision(checkPos))
+	{
+		m_vPos.x = 500;
+		m_vPos.y = 500;
+	}
+
 	CBaseObject::Pulse();
 
 	return true;
@@ -127,16 +131,9 @@ void CPlayerInfo::Render()
 	POINT ptPosText; // 좌표값 체크
 	
 	ptPosText.x = m_vPos.x;
-	ptPosText.y = m_vPos.y + (m_kImageInfo.m_siSize.cy / 2);
-
-#ifdef _DEBUG
-#ifdef _UNICODE
-	g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFFFF00, L"(%d,%d)", ptPosText.x, ptPosText.y);
-#else
+	ptPosText.y = m_vPos.y;
 	g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
-#endif
-#endif
-	
+
 	CBaseRender::RenderSet(m_vPos, m_vScale);
 
 	CBaseObject::Render(mat);
