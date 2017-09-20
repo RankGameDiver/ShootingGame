@@ -43,7 +43,7 @@ bool CIntro::Pulse()
 
 	if (m_fTime > 5.0f)
 	{
-		g_pSystem->ChangeScene(IScene::eSceneType_Stage1);
+		g_pSystem->ChangeScene(IScene::eSceneType_InGame);
 	}
 
 	return true;

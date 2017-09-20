@@ -31,7 +31,7 @@ bool CSystem::Initialize(void)
 	m_pImageManager = new CImageManager;
 	m_pImageManager->Initialize();
 
-	ChangeScene(IScene::eSceneType_Stage1);
+	ChangeScene(IScene::eSceneType_InGame);
 
 	return true;
 }
@@ -134,8 +134,11 @@ void CSystem::ChangeScene(IScene::eSceneType eType)
 		m_pCurrScene = new CMenu;
 		break;
 
-	case IScene::eSceneType_Stage1:
-		m_pCurrScene = new CFirstStage;
+	case IScene::eSceneType_InGame:
+		m_pCurrScene = new CInGame;
+		break;
+
+	case IScene::eSceneType_Exit:
 		break;
 
 	case IScene::eSceneType_Quit:

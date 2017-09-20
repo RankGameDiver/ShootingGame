@@ -33,7 +33,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 		{
 			m_pImageInfo[i].SetRect(i * 96, 0, 96, 76);
 		}
-		CBaseRender::Load("./Images/오너.png");
 		break;
 	case 2: // 토끼
 		m_pImageInfo = new CImageInfo[8];
@@ -41,7 +40,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 		{
 			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
 		}
-		CBaseRender::Load("./Images/토끼.png");
 		break;
 	case 3: // 인형
 		m_pImageInfo = new CImageInfo[8];
@@ -49,7 +47,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 		{
 			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
 		}
-		CBaseRender::Load("./Images/인형.png");
 		break;
 	case 4: // 콩
 		m_pImageInfo = new CImageInfo[8];
@@ -57,7 +54,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 		{
 			m_pImageInfo[i].SetRect(i * 96, 0, 96, 76);
 		}
-		CBaseRender::Load("./Images/콩.png");
 		break;
 	case 5: // 호두까기
 		m_pImageInfo = new CImageInfo[8];
@@ -65,7 +61,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 		{
 			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
 		}
-		CBaseRender::Load("./Images/호두까기.png");
 		break;
 	case 6: // 강아지
 		m_pImageInfo = new CImageInfo[6];
@@ -73,7 +68,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 		{
 			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
 		}
-		CBaseRender::Load("./Images/강아지.png");
 		break;
 	case 7: // 보라색
 		m_pImageInfo = new CImageInfo[6];
@@ -81,7 +75,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 		{
 			m_pImageInfo[i].SetRect(i * 96, 0, 96, 76);
 		}
-		CBaseRender::Load("./Images/보라색.png");
 		break;
 	case 8: // 호박
 		m_pImageInfo = new CImageInfo[6];
@@ -89,7 +82,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 		{
 			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
 		}
-		CBaseRender::Load("./Images/호박.png");
 		break;
 	default:
 		break;
@@ -98,18 +90,14 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 	m_vOffset.x = -10.0f;
 	m_vOffset.y = -10.0f;
 
-	m_vPos.x = 100;
-	m_vPos.y = 100;
-	
-	m_vScale.x = 1.0f;
-	m_vScale.y = 1.0f;
-	m_vScale.z = 1.0f;
+	SetPos();
+	SetScale();
 
 	m_eActionState = eActionState_Normal;
 
 	m_pGameFrame = new CFrameSkip();
 
-	CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, 56, 80);
+	CBaseObject::SetUpCollision();
 	return true;
 }
 

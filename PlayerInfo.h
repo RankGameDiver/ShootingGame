@@ -16,6 +16,8 @@ protected:
 
 	CFrameSkip*		m_pGameFrame;
 
+	/*D3DVECTOR m_vPos;
+	D3DVECTOR m_vScale;*/
 	int m_nLife; // 플레이어 생명
 
 public:

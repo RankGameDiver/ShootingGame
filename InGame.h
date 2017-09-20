@@ -7,7 +7,7 @@ class CInGame :
 	public CBaseRender,
 	public IScene
 {
-public:
+private:
 	float	m_fTime;
 	CBackGround* m_pBackGround;
 	CPlayerInfo*	m_pPlayer;

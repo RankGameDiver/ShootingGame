@@ -8,10 +8,10 @@ public:
 		eSceneType_Unknown,
 		eSceneType_Intro,
 		eSceneType_Menu,
-		eSceneType_Stage1,
-		eSceneType_Stage2,
-		eSceneType_Stage3,
-		eSceneType_Quit
+		eSceneType_InGame,
+		eSceneType_Exit,
+		eSceneType_Quit,
+		eSceneType_Count,
 	};
 
 public:

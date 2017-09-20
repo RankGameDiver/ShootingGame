@@ -64,11 +64,21 @@ _inline int CEnemy::GetLife() const
 	return m_nLife;
 }
 
+__inline void CEnemy::SetPos() // 시작 위치 지정
+{
+	m_vPos.x = 100;
+	m_vPos.y = 100;
+}
 __inline D3DXVECTOR3 CEnemy::GetPos() // 시작 위치 반환
 {
 	return m_vPos;
 }
-
+__inline void CEnemy::SetScale() // 크기 지정
+{
+	m_vScale.x = 1.0f;
+	m_vScale.y = 1.0f;
+	m_vScale.z = 1.0f;
+}
 __inline D3DXVECTOR3 CEnemy::GetScale() // 시작 위치 반환
 {
 	return m_vPos;

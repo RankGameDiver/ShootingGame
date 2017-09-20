@@ -105,11 +105,8 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="FirstStage.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="BackGround.cpp">
-      <Filter>Object</Filter>
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,11 +191,8 @@
     <ClInclude Include="Enemy.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="FirstStage.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="BackGround.h">
-      <Filter>Object</Filter>
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
