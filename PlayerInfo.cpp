@@ -50,7 +50,7 @@ bool CPlayerInfo::Initialize()
 
 	m_pGameFrame = new CFrameSkip();
 
-	CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, 64, 100);
+	CBaseObject::SetUpCollision();
 
 	return true;
 }
@@ -113,8 +113,7 @@ bool CPlayerInfo::Pulse()
 		deltaTime += fTimeStep;
 	}
 
-	Vector2D checkPos{ 10, 10 };
-	if (CheckCollision(checkPos))
+	if (CheckCollision(Vector2D(10,10)))
 	{
 		m_vPos.x = 500;
 		m_vPos.y = 500;

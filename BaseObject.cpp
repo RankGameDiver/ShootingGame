@@ -18,7 +18,7 @@ CBaseObject::~CBaseObject()
 {
 }
 
-void CBaseObject::SetUpCollision(float x, float y, float w, float h) // 콜라이더 생성 (다시 만들 예정)
+void CBaseObject::SetUpCollision() // 콜라이더 생성
 {
 	m_siCollision.cx = (int)m_pImageInfo[0].GetSize().cx;
 	m_siCollision.cy = (int)m_pImageInfo[0].GetSize().cy;
@@ -28,7 +28,7 @@ void CBaseObject::SetUpCollision(float x, float y, float w, float h) // 콜라이더
 
 	m_kCollision.SetRect(
 		m_vPos.x + m_ptCollisionOffset.x - m_siCollision.cx / 2,
-		m_vPos.x + m_ptCollisionOffset.x - m_siCollision.cx / 2,
+		m_vPos.y + m_ptCollisionOffset.y - m_siCollision.cy / 2,
 		m_siCollision.cx,
 		m_siCollision.cy);
 }
@@ -38,7 +38,6 @@ bool CBaseObject::CheckCollision(Vector2D vPos) // 콜라이더 충돌 체크(다시 만들 
 	POINT ptPos;
 	ptPos.x = (int)vPos.x;
 	ptPos.y = (int)vPos.y;
-
 
 	if (PtInRect(&m_kCollision, ptPos))
 	{
@@ -53,7 +52,7 @@ bool CBaseObject::Pulse()
 
 	m_kCollision.SetRect(
 		m_vPos.x + m_ptCollisionOffset.x - m_siCollision.cx / 2,
-		m_vPos.x + m_ptCollisionOffset.x - m_siCollision.cx / 2,
+		m_vPos.y + m_ptCollisionOffset.y - m_siCollision.cy / 2,
 		m_siCollision.cx,
 		m_siCollision.cy);
 

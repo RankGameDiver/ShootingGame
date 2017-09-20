@@ -30,9 +30,10 @@ public:
 	virtual ~CBaseObject();
 
 public:
-	void SetUpCollision(float x, float y, float w, float h);
+	void SetUpCollision();
 	__inline CImageInfo* GetCollision() { return &m_kCollision; };
 	bool CheckCollision(Vector2D vPos);
+	__inline Vector2D GetCollision(Vector2D vPos) {	return vPos; }
 
 public:
 	bool Pulse();

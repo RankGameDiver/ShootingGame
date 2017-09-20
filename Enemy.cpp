@@ -109,7 +109,7 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 
 	m_pGameFrame = new CFrameSkip();
 
-	CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, 56, 80);
+	CBaseObject::SetUpCollision();
 	return true;
 }
 
