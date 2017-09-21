@@ -100,12 +100,6 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 
 	m_vPos.x = 100;
 	m_vPos.y = 100;
-	
-	m_vScale.x = 1.0f;
-	m_vScale.y = 1.0f;
-	m_vScale.z = 1.0f;
-
-	m_eActionState = eActionState_Normal;
 
 	m_pGameFrame = new CFrameSkip();
 
@@ -115,20 +109,17 @@ bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
 
 void CEnemy::Terminate()
 {
-
+	delete[] this;
 }
 
 bool CEnemy::Pulse()
 {
 	CTimeManager::Pulse();
 
-	float fOffset = 200 * g_pSystem->GetTimeStep();
-
-	m_eActionState = eActionState::eActionState_Normal;
-
+//	float fOffset = 200 * g_pSystem->GetTimeStep();
 	float fTimeStep = CTimeManager::GetTimeStep();
 
-	//// 애니메이션 프레임 속도 조절
+	// 애니메이션 프레임 속도 조절
 	if (m_pGameFrame->Update(fTimeStep))
 	{
 		static unsigned int frame = 0;
@@ -162,7 +153,7 @@ void CEnemy::Render()
 
 	g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
 
-	CBaseRender::RenderSet(m_vPos, m_vScale);
+	CBaseRender::RenderSet(m_vPos);
 
 	CBaseObject::Render(mat);
 }

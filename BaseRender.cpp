@@ -31,7 +31,7 @@ bool CBaseRender::Pulse()
 	return true;
 }
 
-void CBaseRender::RenderSet(D3DXVECTOR3 m_vPos, D3DXVECTOR3 m_vScale)
+void CBaseRender::RenderSet(D3DXVECTOR3 m_vPos)
 {
 	D3DXMatrixIdentity(&mat);
 	D3DXMatrixIdentity(&matS);

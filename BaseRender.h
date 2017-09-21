@@ -31,7 +31,7 @@ public:
 	int m_iTextureHandle;
 
 	D3DXVECTOR3		m_vPos; // 위치
-	D3DXVECTOR3		m_vScale; // 크기
+	D3DXVECTOR3		m_vScale = D3DXVECTOR3(1.0f, 1.0f, 1.0f); // 크기
 	D3DXVECTOR3		m_vOffset;
 	D3DCOLOR		m_d3dColor;
 
@@ -50,7 +50,7 @@ public:
 	virtual bool Initialize();
 	virtual void Terminate();
 	virtual bool Pulse();
-	virtual void RenderSet(D3DXVECTOR3 m_vPos, D3DXVECTOR3 m_vScale);
+	virtual void RenderSet(D3DXVECTOR3 m_vPos);
 	virtual void Render();
 	virtual void Render(D3DXMATRIX mat);
 

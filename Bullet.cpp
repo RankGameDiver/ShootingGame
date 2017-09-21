@@ -2,10 +2,7 @@
 
 CBullet::CBullet()
 {
-	m_eRenderType = eRenderType_Bullet;
 
-	m_bIsActive = false;
-	//m_pPlayer = 
 }
 
 CBullet::~CBullet()
@@ -13,21 +10,21 @@ CBullet::~CBullet()
 
 }
 
-bool CBullet::Initialize()
+bool CBullet::Initialize(Vector2D pos)
 {
 	CBaseRender::Initialize();
 
-	m_vOffset.x = -20.0f;
-	m_vOffset.y = -20.0f;
+	m_pImageInfo = new CImageInfo[3];
+	for (int i = 0; i < 3; i++)
+	{
+		m_pImageInfo[i].SetRect(i * 24, 0, 24, 49);
+	}
+	CBaseRender::Load("./Images/총알.png");
 
-//	m_vPos.x = 
-//	m_vPos.y = 
+	m_vPos.x = pos.x;
+	m_vPos.y = pos.y;
 
-	m_vScale.x = 1.0f;
-	m_vScale.y = 1.0f;
-	m_vScale.z = 1.0f;
-
-	m_eActionState = eActionState_Normal;
+	m_pGameFrame = new CFrameSkip();
 
 	CBaseObject::SetUpCollision();
 	return true;
@@ -35,17 +32,39 @@ bool CBullet::Initialize()
 
 void CBullet::Terminate()
 {
-
+	CBaseRender::Terminate();
 }
 
 bool CBullet::Pulse()
 {
-	float fOffset = 200 * g_pSystem->GetTimeStep();
+	CTimeManager::Pulse();
+	float fTimeStep = CTimeManager::GetTimeStep();
+
+	// 애니메이션 프레임 속도 조절
+	if (m_pGameFrame->Update(fTimeStep))
+	{
+		static unsigned int frame = 0;
+		static float deltaTime = 0;
+
+		if (frame > 2)
+		{
+			frame = 0;
+		}
+
+		m_kImageInfo = m_pImageInfo[frame];
+		if (deltaTime >= 0.12f)
+		{
+			frame++;
+			deltaTime = 0;
+		}
+		deltaTime += fTimeStep;
+	}
 
 	//if (CheckCollision(GetCollision()))
 	//{
 	//	
 	//}
+	m_vPos.y -= 5;
 
 	CBaseObject::Pulse();
 	return true;
@@ -53,6 +72,10 @@ bool CBullet::Pulse()
 
 void CBullet::Render()
 {
-	CBaseRender::RenderSet(m_vPos, m_vScale);
-	CBaseRender::Render(mat);
+	if (m_bIsActive)
+	{
+		CBaseRender::RenderSet(m_vPos);
+		CBaseRender::Render(mat);
+		if (m_vPos.y <= -100) SetActive(false);
+	}
 }

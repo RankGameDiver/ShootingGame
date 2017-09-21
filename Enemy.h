@@ -19,7 +19,7 @@ public:
 
 public:
 	_inline void SetActive(bool life); // 살아있으면 true, 죽으면 false(초기 생성시 true로 생성)
-	_inline bool IsActive() const;
+	_inline bool GetActive() const;
 
 	_inline void SetLife(int hp); // 잡몹들은 모두 체력 3
 	_inline void DecrementLife(); // 피격시 실행
@@ -40,7 +40,7 @@ _inline void CEnemy::SetActive(bool life)
 	m_bIsActive = life;
 }
 
-_inline bool CEnemy::IsActive() const
+_inline bool CEnemy::GetActive() const
 {
 	return m_bIsActive;
 }

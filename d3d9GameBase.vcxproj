@@ -83,6 +83,7 @@
     <ClCompile Include="BaseRender.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="d3d9GameBase.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FirstStage.cpp" />
@@ -109,6 +110,7 @@
     <ClInclude Include="BaseRender.h" />
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="d3d9GameBase.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FirstStage.h" />

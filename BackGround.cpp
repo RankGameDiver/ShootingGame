@@ -29,8 +29,6 @@ bool CBackGround::Initialize()
 	SetPos(m_vPos);
 	SetScale(m_vScale);
 
-	m_eActionState = eActionState_Normal;
-
 	return true;
 }
 
@@ -51,6 +49,6 @@ bool CBackGround::Pulse()
 
 void CBackGround::Render()
 {
-	CBaseRender::RenderSet(m_vPos, m_vScale);
+	CBaseRender::RenderSet(m_vPos);
 	CBaseObject::Render(mat);
 }

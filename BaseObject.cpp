@@ -1,11 +1,7 @@
 #include "stdafx.h"
-#include "BaseObject.h"
-
 
 CBaseObject::CBaseObject()
 {
-	m_eActionState = eActionState::eActionState_Unknown;
-
 	m_siCollision.cx = 0;
 	m_siCollision.cy = 0;
 	m_ptCollisionOffset.x = 0;

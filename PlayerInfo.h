@@ -2,7 +2,7 @@
 #include "BaseObject.h"
 #include "InputHandler.h"
 
-class CEnemy;
+class CBullet;
 
 class CPlayerInfo : public CBaseObject, // PlayerInfo(플레이어 정보)는 BaseObject와 IInputHandler를 상속받고 있다
 					public IInputHandler
@@ -15,10 +15,13 @@ protected:
 	bool m_bIsPressRight; // 오른쪽 화살표
 	bool m_bIsPressUp; // 위쪽 화살표
 	bool m_bIsPressDown; // 아래쪽 화살표
+	bool m_bIsPressZ; // Z키
 
 	CFrameSkip*		m_pGameFrame;
+	CBulletManager* bulletList;
 
 	int m_nLife; // 플레이어 생명
+	int attackDelay;
 
 public:
 	CPlayerInfo();
@@ -39,6 +42,8 @@ public:
 	void Terminate(); // 제거
 	bool Pulse(); // 매 프레임
 	void Render(); // 화면에 그림
+	
+	void Shoot(); // 총알 발사
 
 public:
 	void KeyboardHandler(void);
