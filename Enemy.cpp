@@ -155,7 +155,6 @@ bool CEnemy::Pulse()
 
 void CEnemy::Render()
 {
-	TCHAR buffer[128];
 	POINT ptPosText;
 
 	ptPosText.x = m_vPos.x;

@@ -33,13 +33,22 @@ void CBaseObject::SetUpCollision() // 콜라이더 생성
 		m_siCollision.cy);
 }
 
-bool CBaseObject::CheckCollision(Vector2D vPos) // 콜라이더 충돌 체크(다시 만들 예정)
+bool CBaseObject::CheckCollision(Vector2D vPos) // 콜라이더 충돌 체크(좌표로 충돌 처리)
 {
 	POINT ptPos;
 	ptPos.x = (int)vPos.x;
 	ptPos.y = (int)vPos.y;
 
 	if (PtInRect(&m_kCollision, ptPos))
+	{
+		return true;
+	}
+	return false;
+}
+
+bool CBaseObject::CheckCollision(CImageInfo* collision) // 콜라이더 충돌 체크
+{
+	if (EqualRect(&m_kCollision, collision))
 	{
 		return true;
 	}

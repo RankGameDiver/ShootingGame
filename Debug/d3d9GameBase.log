@@ -1,36 +1,5 @@
 ﻿  PlayerInfo.cpp
-d:\game\shootinggame\playerinfo.cpp(132): warning C4244: '=' : 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\playerinfo.cpp(133): warning C4244: '=' : 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\playerinfo.cpp(134): warning C4244: '인수' : 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\playerinfo.cpp(129): warning C4101: 'buffer' :참조되지 않은 지역 변수입니다.
-  Enemy.cpp
-d:\game\shootinggame\enemy.cpp(161): warning C4244: '=' : 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\enemy.cpp(162): warning C4244: '=' : 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\enemy.cpp(164): warning C4244: '인수' : 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\enemy.cpp(158): warning C4101: 'buffer' :참조되지 않은 지역 변수입니다.
-  BaseObject.cpp
-d:\game\shootinggame\baseobject.cpp(33): warning C4244: '인수' : 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\baseobject.cpp(57): warning C4244: '인수' : 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  건너뛰고 있습니다... (관련된 변경 내용 없음)
-  stdafx.cpp
-  d3d9GameBase.cpp
-  Vector2d.cpp
-  TimeManager.cpp
-  TextureManager.cpp
-  System.cpp
-  Menu.cpp
-  MainProc.cpp
-  Intro.cpp
-  InputManager.cpp
-  InGame.cpp
-  ImageManager.cpp
-  ImageInfo.cpp
-  GraphicManager.cpp
-  Gdi.cpp
-  FrameSkip.cpp
-  FirstStage.cpp
-  BaseWindow.cpp
-  BaseRender.cpp
-  BackGround.cpp
+d:\game\shootinggame\playerinfo.cpp(137): warning C4244: '=' : 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(138): warning C4244: '=' : 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(139): warning C4244: '인수' : 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   d3d9GameBase.vcxproj -> D:\Game\ShootingGame\Debug\d3d9GameBase.exe

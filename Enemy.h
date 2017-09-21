@@ -25,11 +25,7 @@ public:
 	_inline void DecrementLife(); // 피격시 실행
 	_inline int GetLife() const; // 현재 체력을 반환
 
-	__inline void SetPos(); // 시작 위치 지정
-
 	__inline D3DXVECTOR3 GetPos(); // 시작 위치 반환
-
-	__inline void SetScale(); // 크기 지정 // 미완성
 
 	__inline D3DXVECTOR3 GetScale(); // 시작 위치 반환
 

@@ -119,6 +119,12 @@ bool CPlayerInfo::Pulse()
 		m_vPos.y = 500;
 	}
 
+	//if (CheckCollision(GetCollision()))
+	//{
+	//	m_vPos.x = 500;
+	//	m_vPos.y = 500;
+	//}
+
 	CBaseObject::Pulse();
 
 	return true;
@@ -126,12 +132,14 @@ bool CPlayerInfo::Pulse()
 
 void CPlayerInfo::Render()
 {
-	TCHAR buffer[128];
+#ifdef _DEBUG
 	POINT ptPosText; // ÁÂÇ¥°ª Ã¼Å©
-	
 	ptPosText.x = m_vPos.x;
 	ptPosText.y = m_vPos.y;
 	g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
+
+#endif
+
 
 	CBaseRender::RenderSet(m_vPos, m_vScale);
 

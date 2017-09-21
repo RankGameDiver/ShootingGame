@@ -2,6 +2,8 @@
 #include "BaseObject.h"
 #include "InputHandler.h"
 
+class CEnemy;
+
 class CPlayerInfo : public CBaseObject, // PlayerInfo(플레이어 정보)는 BaseObject와 IInputHandler를 상속받고 있다
 					public IInputHandler
 {

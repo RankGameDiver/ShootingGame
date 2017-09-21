@@ -53,6 +53,7 @@
 #include "BackGround.h"
 #include "PlayerInfo.h"
 #include "Enemy.h"
+#include "Bullet.h"
 #include "MainProc.h"
 #include "Intro.h"
 #include "Menu.h"
