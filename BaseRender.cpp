@@ -50,6 +50,23 @@ void CBaseRender::RenderSet(D3DXVECTOR3 m_vPos)
 	mat = matS * matR * matT;
 }
 
+void CBaseRender::RenderSet(D3DXVECTOR3 m_vPos, float m_vRot)
+{
+	D3DXMatrixIdentity(&mat);
+	D3DXMatrixIdentity(&matS);
+	D3DXMatrixIdentity(&matR);
+	D3DXMatrixIdentity(&matT);
+
+	D3DXMatrixScaling(&matS, m_vScale.x, m_vScale.y, m_vScale.z); // 크기
+
+	//회전
+	D3DXMatrixRotationZ(&matR, m_vRot);
+
+	D3DXMatrixTranslation(&matT, m_vPos.x, m_vPos.y, 0.0f); // 위치
+
+	mat = matS * matR * matT;
+}
+
 void CBaseRender::Render()
 {
 	LPDIRECT3DTEXTURE9 lpTexture = g_pTextureManager->FindTexture(m_iTextureHandle);

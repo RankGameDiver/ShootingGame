@@ -70,10 +70,10 @@ bool CPlayerInfo::Pulse()
 		CTimeManager::Pulse();
 		bulletList->Pulse();
 		// 화살표 방향 입력받는 부분
-		if (m_bIsPressLeft)		m_vPos.x -= 8;
-		if (m_bIsPressRight)	m_vPos.x += 8;
-		if (m_bIsPressUp)		m_vPos.y -= 8;
-		if (m_bIsPressDown)		m_vPos.y += 8;
+		if (m_bIsPressLeft)		m_vPos.x -= 3;
+		if (m_bIsPressRight)	m_vPos.x += 3;
+		if (m_bIsPressUp)		m_vPos.y -= 3;
+		if (m_bIsPressDown)		m_vPos.y += 3;
 
 		if (attackDelay > 0) attackDelay--;
 

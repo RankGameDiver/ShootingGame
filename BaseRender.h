@@ -51,6 +51,7 @@ public:
 	virtual void Terminate();
 	virtual bool Pulse();
 	virtual void RenderSet(D3DXVECTOR3 m_vPos);
+	virtual void RenderSet(D3DXVECTOR3 m_vPos, float m_vRot);
 	virtual void Render();
 	virtual void Render(D3DXMATRIX mat);
 
