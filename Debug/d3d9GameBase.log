@@ -1,53 +1,5 @@
-﻿  stdafx.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  d3d9GameBase.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  Vector2d.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  TimeManager.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  TextureManager.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  System.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  PlayerInfo.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  Menu.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  MainProc.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  Intro.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  InputManager.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  InGame.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  ImageManager.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  ImageInfo.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  GraphicManager.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  Gdi.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  FrameSkip.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  FirstStage.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  Enemy.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  BulletManager.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  Bullet.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  BaseWindow.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  BaseRender.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  BaseObject.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  BackGround.cpp
-d:\games\shootinggame\stdafx.h(17): fatal error C1083: 포함 파일을 열 수 없습니다. 'd3dx9.h': No such file or directory
-  코드를 생성하고 있습니다...
+﻿  PlayerInfo.cpp
+d:\game\shootinggame\playerinfo.cpp(125): warning C4244: '=' : 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(126): warning C4244: '=' : 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(127): warning C4244: '인수' : 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  d3d9GameBase.vcxproj -> D:\Game\ShootingGame\Debug\d3d9GameBase.exe
