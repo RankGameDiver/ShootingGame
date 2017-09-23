@@ -29,7 +29,7 @@ bool CPlayerInfo::Initialize()
 	CTimeManager::Initialize();
 
 	bulletList = new CBulletManager;
-	bulletList->Initialize();
+	bulletList->Init();
 
 	m_pGameFrame = new CFrameSkip;
 	m_pGameFrame->SetFramePerSec(60);
@@ -45,8 +45,8 @@ bool CPlayerInfo::Initialize()
 	m_vOffset.x = -32.0f;
 	m_vOffset.y = -32.0f;
 
-	m_vPos.x = 320;
-	m_vPos.y = 200;
+	m_vPos.x = 240;
+	m_vPos.y = 600;
 
 	m_pGameFrame = new CFrameSkip();
 
@@ -68,7 +68,7 @@ bool CPlayerInfo::Pulse()
 	if (m_bIsActive)
 	{
 		CTimeManager::Pulse();
-		bulletList->Pulse();
+		bulletList->Frame();
 		// 화살표 방향 입력받는 부분
 		if (m_bIsPressLeft)		m_vPos.x -= 3;
 		if (m_bIsPressRight)	m_vPos.x += 3;
@@ -103,13 +103,6 @@ bool CPlayerInfo::Pulse()
 			m_vPos.x = 500;
 			m_vPos.y = 500;
 		}
-
-		//if (CheckCollision(GetCollision()))
-		//{
-		//	m_vPos.x = 500;
-		//	m_vPos.y = 500;
-		//}
-
 		CBaseObject::Pulse();
 	}
 
@@ -151,9 +144,5 @@ void CPlayerInfo::KeyboardHandler(void)
 }
 
 void CPlayerInfo::MouseHandler(MOUSESTATE diMouseState)
-{
-}
-
-void CPlayerInfo::Shoot()
 {
 }

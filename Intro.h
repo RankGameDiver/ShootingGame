@@ -1,8 +1,5 @@
 #pragma once
 
-#include "IScene.h"
-#include "BaseRender.h"
-
 class CIntro :
 	public CBaseRender,
 	public IScene

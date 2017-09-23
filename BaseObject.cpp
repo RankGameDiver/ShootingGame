@@ -42,9 +42,9 @@ bool CBaseObject::CheckCollision(Vector2D vPos) // 콜라이더 충돌 체크(좌표로 충�
 	return false;
 }
 
-bool CBaseObject::CheckCollision(CImageInfo* collision) // 콜라이더 충돌 체크
+bool CBaseObject::CheckCollision(CImageInfo* collision1, CImageInfo* collision2) // 콜라이더 충돌 체크
 {
-	if (EqualRect(&m_kCollision, collision))
+	if (EqualRect(collision1, collision2))
 	{
 		return true;
 	}

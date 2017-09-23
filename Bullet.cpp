@@ -21,7 +21,7 @@ bool CBullet::Initialize(Vector2D pos)
 	}
 	CBaseRender::Load("./Images/ÃÑ¾Ë.png");
 
-	m_vPos.x = pos.x;
+	m_vPos.x = pos.x + 20;
 	m_vPos.y = pos.y;
 
 	m_pGameFrame = new CFrameSkip();
@@ -60,10 +60,6 @@ bool CBullet::Pulse()
 		deltaTime += fTimeStep;
 	}
 
-	//if (CheckCollision(GetCollision()))
-	//{
-	//	
-	//}
 	m_vPos.y -= 5;
 
 	CBaseObject::Pulse();

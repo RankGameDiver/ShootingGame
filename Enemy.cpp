@@ -7,15 +7,17 @@ CEnemy::CEnemy()
 	m_bIsActive = false;
 
 	m_nLife = MAX_ENEMY_LIFE;
+	move = true; 
 }
 
 CEnemy::~CEnemy()
 {
 }
 
-bool CEnemy::Initialize(eEnemyKind m_eEnemyKind)
+bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 {
 	CBaseRender::Initialize();
+	SetActive(true);
 
 	switch (m_eEnemyKind)
 	{
@@ -114,46 +116,69 @@ void CEnemy::Terminate()
 
 bool CEnemy::Pulse()
 {
-	CTimeManager::Pulse();
-
-//	float fOffset = 200 * g_pSystem->GetTimeStep();
-	float fTimeStep = CTimeManager::GetTimeStep();
-
-	// 애니메이션 프레임 속도 조절
-	if (m_pGameFrame->Update(fTimeStep))
+	if (GetActive())
 	{
-		static unsigned int frame = 0;
-		static float deltaTime = 0;
+		CTimeManager::Pulse();
 
-		if (frame > 5)
+		//	float fOffset = 200 * g_pSystem->GetTimeStep();
+		float fTimeStep = CTimeManager::GetTimeStep();
+
+		// 애니메이션 프레임 속도 조절
+		if (m_pGameFrame->Update(fTimeStep))
 		{
-			frame = 0;
+			static unsigned int frame = 0;
+			static float deltaTime = 0;
+
+			if (frame > 5)
+			{
+				frame = 0;
+			}
+
+			m_kImageInfo = m_pImageInfo[frame];
+			if (deltaTime >= 0.12f)
+			{
+				frame++;
+				deltaTime = 0;
+			}
+			deltaTime += fTimeStep;
 		}
 
-		m_kImageInfo = m_pImageInfo[frame];
-		if (deltaTime >= 0.12f)
+		if (move)
 		{
-			frame++;
-			deltaTime = 0;
+			m_vPos.x += 1;
+			if (m_vPos.x >= 400)
+			{
+				move = false;
+			}
 		}
-		deltaTime += fTimeStep;
+		else
+		{
+			m_vPos.x -= 1;
+			if (m_vPos.x <= 10)
+			{
+				move = true;
+			}
+		}
+
+		CBaseObject::Pulse();
 	}
-
-	CBaseObject::Pulse();
-
+	
 	return true;
 }
 
 void CEnemy::Render()
 {
-	POINT ptPosText;
+	if (GetActive())
+	{
+		POINT ptPosText;
 
-	ptPosText.x = m_vPos.x;
-	ptPosText.y = m_vPos.y;
+		ptPosText.x = m_vPos.x;
+		ptPosText.y = m_vPos.y;
 
-	g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
+		g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
 
-	CBaseRender::RenderSet(m_vPos);
+		CBaseRender::RenderSet(m_vPos);
 
-	CBaseObject::Render(mat);
+		CBaseObject::Render(mat);
+	}
 }

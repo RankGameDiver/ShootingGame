@@ -4,12 +4,28 @@
 class CEnemy : 
 	public CBaseObject
 {
+public:
+	enum eEnemyKind
+	{
+		eEnemyKind_Banana, // 바나나
+		eEnemyKind_Owner, // 오너
+		eEnemyKind_Rabbit, // 토끼
+		eEnemyKind_Doll, // 인형
+		eEnemyKind_Bean, // 콩
+		eEnemyKind_WalnutDoll, // 호두까기
+		eEnemyKind_Dog, // 강아지
+		eEnemyKind_Purple, // 보라색
+		eEnemyKind_Pumpkin, // 호박
+	};
+	eEnemyKind m_eEnemyKind;
+
 protected:
 	D3DVECTOR m_vPos; // 위치
 	D3DVECTOR m_vScale; // 크기
 	bool m_bIsActive; // 상태(죽었는지 살았는지)
 
 	int m_nLife; // 몬스터 생명 수
+	bool move;// true면 오른쪽으로 이동, false면 왼쪽으로 이동
 
 	CFrameSkip*		m_pGameFrame;
 
@@ -29,7 +45,7 @@ public:
 
 	__inline D3DXVECTOR3 GetScale(); // 시작 위치 반환
 
-	bool Initialize(eEnemyKind m_eEnemyKind); // 초기 설정
+	bool Initialize(int m_eEnemyKind, Vector2D pos); // 초기 설정
 	void Terminate(); // 제거
 	bool Pulse(); // 매 프레임
 	void Render(); // 화면에 그림

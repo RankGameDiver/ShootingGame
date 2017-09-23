@@ -17,9 +17,9 @@ public:
 
 public:
 	void SetUpCollision();
-	__inline CImageInfo* GetCollision() { return &m_kCollision; };
 	bool CheckCollision(Vector2D vPos);
-	bool CheckCollision(CImageInfo* collision);
+	bool CheckCollision(CImageInfo* collision1, CImageInfo* collsion2);
+	__inline CImageInfo* GetCollision() { return &m_kCollision; };
 	__inline Vector2D GetCollision(Vector2D vPos) {	return vPos; }
 
 public:

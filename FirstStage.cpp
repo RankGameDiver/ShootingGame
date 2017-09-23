@@ -21,8 +21,9 @@ bool CFirstStage::Initialize()
 	m_pPlayer->Load("./Images/ÁÖÀÎ°ø.png");
 	g_pInputManager->SetInputHandler(m_pPlayer);
 
-	m_pEnemy = new CEnemy();
-	m_pEnemy->Initialize(eEnemyKind_Banana);
+	m_pEnemyManager = new CEnemyManager;
+	m_pEnemyManager->Initialize(0, Vector2D(100, 100));
+	m_pEnemyManager->OnObject()->Initialize(0, Vector2D(100, 100));
 
 	return true;
 }

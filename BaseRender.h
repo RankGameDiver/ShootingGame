@@ -10,23 +10,9 @@ public:
 		eRenderType_Enemy, // 적들
 		eRenderType_BackGround // 배경
 	};
-
-	enum eEnemyKind
-	{
-		eEnemyKind_Banana, // 바나나
-		eEnemyKind_Owner, // 오너
-		eEnemyKind_Rabbit, // 토끼
-		eEnemyKind_Doll, // 인형
-		eEnemyKind_Bean, // 콩
-		eEnemyKind_WalnutDoll, // 호두까기
-		eEnemyKind_Dog, // 강아지
-		eEnemyKind_Purple, // 보라색
-		eEnemyKind_Pumpkin, // 호박
-	};
 	
 public:
 	eRenderType m_eRenderType;
-	eEnemyKind m_eEnemyKind;
 
 	int m_iTextureHandle;
 

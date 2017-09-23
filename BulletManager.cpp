@@ -12,7 +12,7 @@ CBulletManager::~CBulletManager()
 
 }
 
-void CBulletManager::Initialize()
+void CBulletManager::Init()
 {
 	for (int i = 0; i < MAXBULLET; i++)
 	{
@@ -33,13 +33,14 @@ void CBulletManager::Render()
 	}
 }
 
-void CBulletManager::Pulse()
+void CBulletManager::Frame()
 {
 	for (int i = 0; i < MAXBULLET; i++)
 	{
 		if (bulletList[i]->GetActive())
 		{
 			bulletList[i]->Pulse();
+			CBulletManager::GetCollision();
 		}
 	}
 }
@@ -59,4 +60,22 @@ CBullet* CBulletManager::OnObject()
 			return bulletList[i];
 		}
 	}
+}
+
+CImageInfo* CBulletManager::GetCollision()
+{
+	for (int i = 0; i < MAXBULLET; i++)
+	{
+		if (bulletList[i]->GetActive())
+		{
+			for (int j = 0; j < 50; j++)
+			{
+				if (CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
+				{
+					bulletList[i]->SetActive(false);
+				}
+			}
+		}
+	}
+	return NULL;
 }

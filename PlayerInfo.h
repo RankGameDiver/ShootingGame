@@ -42,8 +42,6 @@ public:
 	void Terminate(); // 제거
 	bool Pulse(); // 매 프레임
 	void Render(); // 화면에 그림
-	
-	void Shoot(); // 총알 발사
 
 public:
 	void KeyboardHandler(void);

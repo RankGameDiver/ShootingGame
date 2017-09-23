@@ -4,8 +4,8 @@ class CPlayerInfo;
 class CBullet : public CBaseObject
 {
 protected:
-	bool m_bIsActive; // 활성화
-	CPlayerInfo* m_pPlayer;
+	bool m_bIsActive = false; // 활성화
+	CPlayerInfo*	m_pPlayer;
 	CFrameSkip*		m_pGameFrame;
 	const int damage = 1; // 데미지
 
@@ -16,8 +16,6 @@ public:
 public:
 	__inline void SetActive(bool bActive); // 총알이 움직이는 상태면 true, 아니면 false
 	__inline bool GetActive() const; // 현재 상태를 bool 값으로 반환
-	
-	__inline void CrashBullet();
 	
 	bool Initialize(Vector2D pos);
 	void Terminate();
@@ -33,9 +31,4 @@ __inline void CBullet::SetActive(bool bActive)
 __inline bool CBullet::GetActive() const
 {
 	return m_bIsActive;
-}
-
-__inline void CBullet::CrashBullet() // 총알 충돌 (미완성)
-{
-
 }

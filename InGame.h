@@ -1,15 +1,15 @@
 #pragma once
 
-class CInGame :
-	public CBaseRender,
+class CInGame: public CSingleton<CInGame>,
+	public CBaseObject,
 	public IScene
 {
 public:
 	float			m_fTime;
 	CBackGround*	m_pBackGround;
 	CPlayerInfo*	m_pPlayer;
-	CEnemy*			m_pEnemy;
-	CBullet*		m_pBullet;
+	CEnemyManager*	m_pEnemyManager;
+	CBulletManager* m_pBulletManager;
 
 public:
 	CInGame(void);
@@ -21,3 +21,5 @@ public:
 	bool Pulse();
 	void Render();
 };
+
+#define g_pInGame	CInGame::GetSingleton()

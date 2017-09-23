@@ -22,18 +22,16 @@ void CInGame::Terminate()
 {
 	m_pBackGround->Terminate();
 	m_pPlayer->Terminate();
-	m_pEnemy->Terminate();
+	m_pEnemyManager->Terminate();
 	CBaseRender::Terminate();
 }
 
 bool CInGame::Pulse()
 {
 	CBaseRender::Pulse();
-	
 	m_pBackGround->Pulse();
 	m_pPlayer->Pulse();
-	m_pEnemy->Pulse();
-
+	m_pEnemyManager->Pulse();
 	return true;
 }
 
@@ -42,5 +40,5 @@ void CInGame::Render()
 	CBaseRender::Render();
 	m_pBackGround->Render();
 	m_pPlayer->Render();
-	m_pEnemy->Render();
+	m_pEnemyManager->Render();
 }

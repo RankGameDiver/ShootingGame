@@ -53,15 +53,17 @@
 #include "ImageManager.h"
 #include "MainProc.h"
 
+
 #include "Bullet.h"
 #include "BulletManager.h"
 #include "PlayerInfo.h"
 #include "Enemy.h"
+#include "EnemyManager.h"
 
 #include "BackGround.h"
+#include "InGame.h"
 #include "Intro.h"
 #include "Menu.h"
-#include "InGame.h"
 #include "FirstStage.h"
 #include "System.h"
 
