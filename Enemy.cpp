@@ -97,9 +97,6 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		break;
 	}
 
-	m_vOffset.x = -10.0f;
-	m_vOffset.y = -10.0f;
-
 	m_vPos.x = 100;
 	m_vPos.y = 100;
 

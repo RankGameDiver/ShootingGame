@@ -70,9 +70,12 @@ CImageInfo* CBulletManager::GetCollision()
 		{
 			for (int j = 0; j < 50; j++)
 			{
-				if (CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
+				if (g_pEnemyManager->GetAct(j))
 				{
-					bulletList[i]->SetActive(false);
+					if (CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
+					{
+						bulletList[i]->SetActive(false);
+					}
 				}
 			}
 		}

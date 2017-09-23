@@ -18,6 +18,7 @@ public:
 	void Terminate();
 
 	CEnemy* OnObject();
+	bool GetAct(int temp);
 	CImageInfo* GetCollision(int temp);
 };
 

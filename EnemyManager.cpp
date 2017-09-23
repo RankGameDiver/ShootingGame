@@ -61,6 +61,14 @@ CEnemy* CEnemyManager::OnObject()
 	}
 }
 
+bool CEnemyManager::GetAct(int temp)
+{
+	if (enemyList[temp]->GetActive())
+		return true;
+	else
+		return false;
+}
+
 CImageInfo* CEnemyManager::GetCollision(int temp)
 {
 	return enemyList[temp]->GetCollision();

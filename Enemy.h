@@ -20,8 +20,6 @@ public:
 	eEnemyKind m_eEnemyKind;
 
 protected:
-	D3DVECTOR m_vPos; // 위치
-	D3DVECTOR m_vScale; // 크기
 	bool m_bIsActive; // 상태(죽었는지 살았는지)
 
 	int m_nLife; // 몬스터 생명 수

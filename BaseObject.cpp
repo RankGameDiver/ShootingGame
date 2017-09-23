@@ -16,8 +16,8 @@ CBaseObject::~CBaseObject()
 
 void CBaseObject::SetUpCollision() // 콜라이더 생성
 {
-	m_siCollision.cx = (int)m_pImageInfo[0].GetSize().cx;
-	m_siCollision.cy = (int)m_pImageInfo[0].GetSize().cy;
+	m_siCollision.cx = (int)m_pImageInfo[0].GetSize().cx; // width
+	m_siCollision.cy = (int)m_pImageInfo[0].GetSize().cy; // height
 
 	m_ptCollisionOffset.x = (m_siCollision.cx / 2) - (m_pImageInfo[0].GetSize().cx / 2);
 	m_ptCollisionOffset.y = (m_siCollision.cy / 2) - (m_pImageInfo[0].GetSize().cy / 2);
