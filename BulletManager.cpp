@@ -17,7 +17,7 @@ void CBulletManager::Init()
 	for (int i = 0; i < MAXBULLET; i++)
 	{
 		bulletList[i] = new CBullet;
-		bulletList[i]->Initialize(Vector2D(0, 0));
+		bulletList[i]->Initialize(0, Vector2D(-100, -100));
 		bulletList[i]->SetActive(false);
 	}
 }
@@ -33,14 +33,14 @@ void CBulletManager::Render()
 	}
 }
 
-void CBulletManager::Frame()
+void CBulletManager::Frame(int bulletType)
 {
 	for (int i = 0; i < MAXBULLET; i++)
 	{
 		if (bulletList[i]->GetActive())
 		{
-			bulletList[i]->Pulse();
-			CBulletManager::GetCollision();
+			bulletList[i]->Pulse(bulletType);
+			CBulletManager::CheckCol(bulletType);
 		}
 	}
 }
@@ -62,21 +62,25 @@ CBullet* CBulletManager::OnObject()
 	}
 }
 
-CImageInfo* CBulletManager::GetCollision()
+CImageInfo* CBulletManager::CheckCol(bool bulletType) // false는 플레이어 탄환, true는 몬스터 탄환
 {
 	for (int i = 0; i < MAXBULLET; i++)
 	{
-		if (bulletList[i]->GetActive())
+		for (int j = 0; j < 50; j++)
 		{
-			for (int j = 0; j < 50; j++)
+			if (bulletList[i]->GetActive() && g_pEnemyManager->GetAct(j) || g_pPlayerManager->GetAct())
 			{
-				if (g_pEnemyManager->GetAct(j))
+				if (bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pPlayerManager->GetCollision())) // 몬스터 탄환 판정 미완성
 				{
-					if (CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
-					{
-						bulletList[i]->SetActive(false);
-					}
+					bulletList[i]->SetActive(false);
+					g_pPlayerManager->CrashBullet();
 				}
+				else if (!bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
+				{
+					bulletList[i]->SetActive(false);
+					g_pEnemyManager->CrashBullet(j);
+				}
+				else {}
 			}
 		}
 	}

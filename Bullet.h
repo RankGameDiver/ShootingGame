@@ -17,9 +17,9 @@ public:
 	__inline void SetActive(bool bActive); // 총알이 움직이는 상태면 true, 아니면 false
 	__inline bool GetActive() const; // 현재 상태를 bool 값으로 반환
 	
-	bool Initialize(Vector2D pos);
+	bool Initialize(int m_eEnemyKind,Vector2D pos);
 	void Terminate();
-	bool Pulse();
+	bool Pulse(int bulletType);
 	void Render();
 };
 

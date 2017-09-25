@@ -16,13 +16,12 @@ bool CFirstStage::Initialize()
 	m_pBackGround->Initialize();
 	m_pBackGround->Load("./Images/인게임배경1.png");
 
-	m_pPlayer = new CPlayerInfo();
-	m_pPlayer->Initialize();
-	m_pPlayer->Load("./Images/주인공.png");
-	g_pInputManager->SetInputHandler(m_pPlayer);
+	m_pPlayerManager = new CPlayerManager();
+	m_pPlayerManager->Initialize();
+	m_pPlayerManager->OnObject()->Initialize();
 
 	m_pEnemyManager = new CEnemyManager;
-	m_pEnemyManager->Initialize(0, Vector2D(100, 100));
+	m_pEnemyManager->Initialize();
 	m_pEnemyManager->OnObject()->Initialize(0, Vector2D(100, 100));
 
 	return true;

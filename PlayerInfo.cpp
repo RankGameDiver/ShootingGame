@@ -12,8 +12,6 @@ CPlayerInfo::CPlayerInfo()
 	m_bIsPressDown = false;
 	m_bIsPressZ = false;
 
-	m_nLife = MAX_PLAYER_LIFE;
-
 	m_pImageInfo = new CImageInfo[MAX_PLAYER_FRAME];
 }
 
@@ -34,13 +32,14 @@ bool CPlayerInfo::Initialize()
 	m_pGameFrame = new CFrameSkip;
 	m_pGameFrame->SetFramePerSec(60);
 
-	m_bIsActive = true;
+	m_nLife = MAX_PLAYER_LIFE;
 
 	//	기본 동작 애니메이션
 	for (int i = 0; i < 8; i++)
 	{
 		m_pImageInfo[i].SetRect(i * 64, 0, 64, 100);
 	}
+	CBaseRender::Load("./Images/주인공.png");
 
 	m_vOffset.x = -32.0f;
 	m_vOffset.y = -32.0f;
@@ -68,7 +67,7 @@ bool CPlayerInfo::Pulse()
 	if (m_bIsActive)
 	{
 		CTimeManager::Pulse();
-		bulletList->Frame();
+		bulletList->Frame(0);
 		// 화살표 방향 입력받는 부분
 		if (m_bIsPressLeft)		m_vPos.x -= 3;
 		if (m_bIsPressRight)	m_vPos.x += 3;
@@ -106,6 +105,13 @@ bool CPlayerInfo::Pulse()
 		CBaseObject::Pulse();
 	}
 
+	if (m_nLife <= 0)
+	{
+		m_bIsActive = false;
+		m_vPos.x = -500;
+		m_vPos.y = -500;
+	}
+
 	return true;
 }
 
@@ -137,7 +143,7 @@ void CPlayerInfo::KeyboardHandler(void)
 	if (!g_pKeyCodeScan(VK_DOWN))	{ m_bIsPressDown = false; }
 	if (g_pKeyCodeScan('Z') && attackDelay <= 0)		
 	{ 
-		bulletList->OnObject()->Initialize(Vector2D(m_vPos.x, m_vPos.y));
+		bulletList->OnObject()->Initialize(0, Vector2D(m_vPos.x, m_vPos.y));
 		attackDelay = 30;
 	}
 	if (!g_pKeyCodeScan('Z'))		{ m_bIsPressZ = false; }

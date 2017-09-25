@@ -5,7 +5,8 @@
 class CBullet;
 
 class CPlayerInfo : public CBaseObject, // PlayerInfo(플레이어 정보)는 BaseObject와 IInputHandler를 상속받고 있다
-					public IInputHandler
+					public IInputHandler,
+					public CSingleton<CEnemyManager>
 {
 protected:
 	bool m_bIsActive; // 움직이고 있는지 확인
@@ -29,7 +30,7 @@ public:
 
 public:
 	__inline void SetActive(bool bActive); // 살아있으면 true 죽으면 false
-	__inline bool IsActive() const; // 현재 상태를 bool값으로 반환
+	__inline bool GetActive() const; // 현재 상태를 bool값으로 반환
 
 	// 생명 관련
 	__inline void IncrementLife();
@@ -53,7 +54,7 @@ __inline void CPlayerInfo::SetActive(bool bActive)
 {
 	m_bIsActive = bActive;
 }
-__inline bool CPlayerInfo::IsActive() const
+__inline bool CPlayerInfo::GetActive() const
 {
 	return m_bIsActive;
 }

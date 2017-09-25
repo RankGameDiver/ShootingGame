@@ -7,7 +7,7 @@ class CInGame: public CSingleton<CInGame>,
 public:
 	float			m_fTime;
 	CBackGround*	m_pBackGround;
-	CPlayerInfo*	m_pPlayer;
+	CPlayerManager*	m_pPlayerManager;
 	CEnemyManager*	m_pEnemyManager;
 	CBulletManager* m_pBulletManager;
 

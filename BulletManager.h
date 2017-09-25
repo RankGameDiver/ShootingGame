@@ -1,9 +1,9 @@
 #pragma once
 
 class CEnemyManager;
+class CPlayerInfo;
 
-class CBulletManager : public CSingleton<CBulletManager>,
-	public CBaseObject
+class CBulletManager : public CBaseObject
 {
 private:
 	CBullet* bulletList[200];
@@ -15,11 +15,9 @@ public:
 public:
 	void Init(); // Initualize
 	void Render();
-	void Frame(); // Pulse
+	void Frame(int m_bulletType); // Pulse
 	void Terminate();
 
 	CBullet* OnObject();
-	CImageInfo* GetCollision();
+	CImageInfo* CheckCol(bool bulletType);
 };
-
-#define g_pBulletManager	CBulletManager::GetSingleton()

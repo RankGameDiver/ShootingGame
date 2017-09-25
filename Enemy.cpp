@@ -17,7 +17,10 @@ CEnemy::~CEnemy()
 bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 {
 	CBaseRender::Initialize();
-	SetActive(true);
+	CTimeManager::Initialize();
+
+	bulletList = new CBulletManager;
+	bulletList->Init();
 
 	switch (m_eEnemyKind)
 	{
@@ -97,8 +100,8 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		break;
 	}
 
-	m_vPos.x = 100;
-	m_vPos.y = 100;
+	m_vPos.x = pos.x;
+	m_vPos.y = pos.y;
 
 	m_pGameFrame = new CFrameSkip();
 
@@ -109,6 +112,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 void CEnemy::Terminate()
 {
 	delete[] this;
+	delete bulletList;
 }
 
 bool CEnemy::Pulse()
@@ -116,11 +120,10 @@ bool CEnemy::Pulse()
 	if (GetActive())
 	{
 		CTimeManager::Pulse();
-
-		//	float fOffset = 200 * g_pSystem->GetTimeStep();
-		float fTimeStep = CTimeManager::GetTimeStep();
+		bulletList->Frame(1);
 
 		// 애니메이션 프레임 속도 조절
+		float fTimeStep = CTimeManager::GetTimeStep();
 		if (m_pGameFrame->Update(fTimeStep))
 		{
 			static unsigned int frame = 0;
@@ -129,6 +132,7 @@ bool CEnemy::Pulse()
 			if (frame > 5)
 			{
 				frame = 0;
+				bulletList->OnObject()->Initialize(1, Vector2D(m_vPos.x, m_vPos.y));
 			}
 
 			m_kImageInfo = m_pImageInfo[frame];
@@ -160,6 +164,11 @@ bool CEnemy::Pulse()
 		CBaseObject::Pulse();
 	}
 	
+	if (m_nLife <= 0)
+	{
+		m_bIsActive = false;
+	}
+
 	return true;
 }
 
@@ -175,7 +184,7 @@ void CEnemy::Render()
 		g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
 
 		CBaseRender::RenderSet(m_vPos);
-
 		CBaseObject::Render(mat);
+		bulletList->Render();
 	}
 }

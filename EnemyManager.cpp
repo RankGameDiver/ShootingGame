@@ -12,12 +12,12 @@ CEnemyManager::~CEnemyManager()
 
 }
 
-void CEnemyManager::Initialize(int enemyType, Vector2D pos)
+void CEnemyManager::Initialize()
 {
 	for (int i = 0; i < MAXENEMY; i++)
 	{
 		enemyList[i] = new CEnemy;
-		enemyList[i]->Initialize(enemyType, pos);
+		enemyList[i]->Initialize(0, Vector2D(100, 100));
 		enemyList[i]->SetActive(false);
 	}
 }
@@ -61,6 +61,12 @@ CEnemy* CEnemyManager::OnObject()
 	}
 }
 
+CEnemy* CEnemyManager::SetAct(int temp, bool bIsActive)
+{
+	enemyList[temp]->SetActive(bIsActive);
+	return NULL;
+}
+
 bool CEnemyManager::GetAct(int temp)
 {
 	if (enemyList[temp]->GetActive())
@@ -72,4 +78,9 @@ bool CEnemyManager::GetAct(int temp)
 CImageInfo* CEnemyManager::GetCollision(int temp)
 {
 	return enemyList[temp]->GetCollision();
+}
+
+void CEnemyManager::CrashBullet(int temp)
+{
+	enemyList[temp]->DecrementLife();
 }

@@ -28,7 +28,7 @@
 #define MAX_LOADSTRING			(128)
 #define MAX_IMAGE				(128)
 #define MAX_TEXTURE				(128)
-#define MAX_PLAYER_LIFE			(3)
+#define MAX_PLAYER_LIFE			(5)
 #define MAX_ENEMY_LIFE			(3)
 #define MAX_PLAYER_FRAME		(8)
 #define MAX_PLAYER_SPEED		(400.0f)
@@ -57,6 +57,7 @@
 #include "Bullet.h"
 #include "BulletManager.h"
 #include "PlayerInfo.h"
+#include "PlayerManager.h"
 #include "Enemy.h"
 #include "EnemyManager.h"
 
