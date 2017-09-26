@@ -117,53 +117,51 @@ void CEnemy::Terminate()
 
 bool CEnemy::Pulse()
 {
-	if (GetActive())
+
+	CTimeManager::Pulse();
+	bulletList->Frame(1);
+
+	// 애니메이션 프레임 속도 조절
+	float fTimeStep = CTimeManager::GetTimeStep();
+	if (m_pGameFrame->Update(fTimeStep))
 	{
-		CTimeManager::Pulse();
-		bulletList->Frame(1);
+		static unsigned int frame = 0;
+		static float deltaTime = 0;
 
-		// 애니메이션 프레임 속도 조절
-		float fTimeStep = CTimeManager::GetTimeStep();
-		if (m_pGameFrame->Update(fTimeStep))
+		if (frame > 5)
 		{
-			static unsigned int frame = 0;
-			static float deltaTime = 0;
-
-			if (frame > 5)
-			{
-				frame = 0;
-				bulletList->OnObject()->Initialize(1, Vector2D(m_vPos.x, m_vPos.y));
-			}
-
-			m_kImageInfo = m_pImageInfo[frame];
-			if (deltaTime >= 0.12f)
-			{
-				frame++;
-				deltaTime = 0;
-			}
-			deltaTime += fTimeStep;
+			frame = 0;
+			//bulletList->OnObject()->Initialize(1, Vector2D(m_vPos.x, m_vPos.y));
 		}
 
-		if (move)
+		m_kImageInfo = m_pImageInfo[frame];
+		if (deltaTime >= 0.12f)
 		{
-			m_vPos.x += 1;
-			if (m_vPos.x >= 400)
-			{
-				move = false;
-			}
+			frame++;
+			deltaTime = 0;
 		}
-		else
-		{
-			m_vPos.x -= 1;
-			if (m_vPos.x <= 10)
-			{
-				move = true;
-			}
-		}
-
-		CBaseObject::Pulse();
+		deltaTime += fTimeStep;
 	}
-	
+
+	if (move)
+	{
+		m_vPos.x += 1;
+		if (m_vPos.x >= 400)
+		{
+			move = false;
+		}
+	}
+	else
+	{
+		m_vPos.x -= 1;
+		if (m_vPos.x <= 10)
+		{
+			move = true;
+		}
+	}
+
+	CBaseObject::Pulse();
+
 	if (m_nLife <= 0)
 	{
 		m_bIsActive = false;
@@ -174,17 +172,14 @@ bool CEnemy::Pulse()
 
 void CEnemy::Render()
 {
-	if (GetActive())
-	{
-		POINT ptPosText;
+	POINT ptPosText;
 
-		ptPosText.x = m_vPos.x;
-		ptPosText.y = m_vPos.y;
+	ptPosText.x = m_vPos.x;
+	ptPosText.y = m_vPos.y;
 
-		g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
+	g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
 
-		CBaseRender::RenderSet(m_vPos);
-		CBaseObject::Render(mat);
-		bulletList->Render();
-	}
+	CBaseRender::RenderSet(m_vPos);
+	CBaseObject::Render(mat);
+	bulletList->Render();
 }

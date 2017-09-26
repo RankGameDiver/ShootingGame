@@ -16,7 +16,7 @@ bool CFirstStage::Initialize()
 	m_pBackGround->Initialize();
 	m_pBackGround->Load("./Images/인게임배경1.png");
 
-	m_pPlayerManager = new CPlayerManager();
+	m_pPlayerManager = new CPlayerManager;
 	m_pPlayerManager->Initialize();
 	m_pPlayerManager->OnObject()->Initialize();
 
