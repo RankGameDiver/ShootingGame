@@ -99,7 +99,6 @@
     <ClCompile Include="MainProc.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="PlayerInfo.cpp" />
-    <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -130,7 +129,6 @@
     <ClInclude Include="MainProc.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="PlayerInfo.h" />
-    <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="stdafx.h" />

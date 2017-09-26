@@ -68,14 +68,9 @@ CImageInfo* CBulletManager::CheckCol(bool bulletType) // false는 플레이어 탄환, 
 	{
 		for (int j = 0; j < 50; j++)
 		{
-			if (bulletList[i]->GetActive() && g_pEnemyManager->GetAct(j) || g_pPlayerManager->GetAct())
+			if (bulletList[i]->GetActive() && g_pEnemyManager->GetAct(j))
 			{
-				if (bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pPlayerManager->GetCollision())) // 몬스터 탄환 판정 미완성
-				{
-					bulletList[i]->SetActive(false);
-					g_pPlayerManager->CrashBullet();
-				}
-				else if (!bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
+				if (!bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
 				{
 					bulletList[i]->SetActive(false);
 					g_pEnemyManager->CrashBullet(j);

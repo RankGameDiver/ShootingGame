@@ -112,7 +112,6 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 void CEnemy::Terminate()
 {
 	delete[] this;
-	delete bulletList;
 }
 
 bool CEnemy::Pulse()

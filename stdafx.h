@@ -57,7 +57,6 @@
 #include "Bullet.h"
 #include "BulletManager.h"
 #include "PlayerInfo.h"
-#include "PlayerManager.h"
 #include "Enemy.h"
 #include "EnemyManager.h"
 
