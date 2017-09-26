@@ -155,6 +155,5 @@ void CBullet::Render()
 		CBaseRender::RenderSet(m_vPos);
 		CBaseRender::Render(mat);
 		if (m_vPos.y <= -100) SetActive(false);
-		if (m_vPos.y >= 800) SetActive(false);
 	}
 }

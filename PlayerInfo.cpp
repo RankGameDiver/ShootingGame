@@ -12,8 +12,6 @@ CPlayerInfo::CPlayerInfo()
 	m_bIsPressDown = false;
 	m_bIsPressZ = false;
 
-	m_nLife = MAX_PLAYER_LIFE;
-
 	m_pImageInfo = new CImageInfo[MAX_PLAYER_FRAME];
 }
 
@@ -33,6 +31,8 @@ bool CPlayerInfo::Initialize()
 
 	m_pGameFrame = new CFrameSkip;
 	m_pGameFrame->SetFramePerSec(60);
+
+	m_nLife = MAX_PLAYER_LIFE;
 
 	//	기본 동작 애니메이션
 	for (int i = 0; i < 8; i++)
@@ -59,71 +59,76 @@ bool CPlayerInfo::Initialize()
 void CPlayerInfo::Terminate()
 {
 	delete bulletList;
-	delete this;
 }
 
 
 bool CPlayerInfo::Pulse()
 {
-
-	CTimeManager::Pulse();
-	bulletList->Frame(0);
-	// 화살표 방향 입력받는 부분
-	if (m_bIsPressLeft)		m_vPos.x -= 3;
-	if (m_bIsPressRight)	m_vPos.x += 3;
-	if (m_bIsPressUp)		m_vPos.y -= 3;
-	if (m_bIsPressDown)		m_vPos.y += 3;
-
-	if (attackDelay > 0) attackDelay--;
-
-	// 애니메이션 프레임 속도 조절
-	float fTimeStep = CTimeManager::GetTimeStep();
-	if (m_pGameFrame->Update(fTimeStep))
+	if (m_bIsActive)
 	{
-		static unsigned int frame = 0;
-		static float deltaTime = 0;
+		CTimeManager::Pulse();
+		bulletList->Frame(0);
+		// 화살표 방향 입력받는 부분
+		if (m_bIsPressLeft)		m_vPos.x -= 3;
+		if (m_bIsPressRight)	m_vPos.x += 3;
+		if (m_bIsPressUp)		m_vPos.y -= 3;
+		if (m_bIsPressDown)		m_vPos.y += 3;
 
-		if (frame > 7)
+		if (attackDelay > 0) attackDelay--;
+
+		// 애니메이션 프레임 속도 조절
+		float fTimeStep = CTimeManager::GetTimeStep();
+		if (m_pGameFrame->Update(fTimeStep))
 		{
-			frame = 0;
+			static unsigned int frame = 0;
+			static float deltaTime = 0;
+
+			if (frame > 7)
+			{
+				frame = 0;
+			}
+
+			m_kImageInfo = m_pImageInfo[frame];
+			if (deltaTime >= 0.08f)
+			{
+				frame++;
+				deltaTime = 0;
+			}
+			deltaTime += fTimeStep;
 		}
 
-		m_kImageInfo = m_pImageInfo[frame];
-		if (deltaTime >= 0.08f)
+		if (CheckCollision(Vector2D(10, 10)))
 		{
-			frame++;
-			deltaTime = 0;
+			m_vPos.x = 500;
+			m_vPos.y = 500;
 		}
-		deltaTime += fTimeStep;
+		CBaseObject::Pulse();
 	}
 
-	if (CheckCollision(Vector2D(10, 10)))
+	if (m_nLife <= 0)
 	{
-		m_vPos.x = 500;
-		m_vPos.y = 500;
+		m_bIsActive = false;
+		m_vPos.x = -500;
+		m_vPos.y = -500;
 	}
-	CBaseObject::Pulse();
 
-	//if (m_nLife) { m_bIsActive = false; }
-
-	//if (!m_bIsActive) {
-	//	m_vPos.x = -500;
-	//	m_vPos.y = -500;
-	//}
 	return true;
 }
 
 void CPlayerInfo::Render()
 {
+	if (m_bIsActive)
+	{
 #ifdef _DEBUG
-	POINT ptPosText; // 좌표값 체크
-	ptPosText.x = m_vPos.x;
-	ptPosText.y = m_vPos.y;
-	g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
+		POINT ptPosText; // 좌표값 체크
+		ptPosText.x = m_vPos.x;
+		ptPosText.y = m_vPos.y;
+		g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
 #endif
-	CBaseRender::RenderSet(m_vPos);
-	CBaseObject::Render(mat);
-	bulletList->Render();
+		CBaseRender::RenderSet(m_vPos);
+		CBaseObject::Render(mat);
+		bulletList->Render();
+	}
 }
 
 void CPlayerInfo::KeyboardHandler(void)
