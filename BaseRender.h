@@ -17,6 +17,7 @@ public:
 	int m_iTextureHandle;
 
 	D3DXVECTOR3		m_vPos; // 위치
+	D3DXVECTOR3		m_vWH; // w, h
 	D3DXVECTOR3		m_vScale = D3DXVECTOR3(1.0f, 1.0f, 1.0f); // 크기
 	D3DXVECTOR3		m_vOffset;
 	D3DCOLOR		m_d3dColor;

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#define MAXBULLET 200
+#define MAXBULLET 50
 
 CBulletManager::CBulletManager()
 {
@@ -20,6 +20,7 @@ void CBulletManager::Init()
 		bulletList[i]->Initialize(0, Vector2D(-100, -100));
 		bulletList[i]->SetActive(false);
 	}
+	bulletCount = 0;
 }
 
 void CBulletManager::Render()
@@ -57,6 +58,7 @@ CBullet* CBulletManager::OnObject()
 		if (!bulletList[i]->GetActive())
 		{
 			bulletList[i]->SetActive(true);
+			bulletCount++;
 			return bulletList[i];
 		}
 	}
@@ -66,18 +68,27 @@ CImageInfo* CBulletManager::CheckCol(bool bulletType) // false는 플레이어 탄환, 
 {
 	for (int i = 0; i < MAXBULLET; i++)
 	{
-		for (int j = 0; j < 50; j++)
+		if (bulletList[i]->GetActive())
 		{
-			if (bulletList[i]->GetActive() && g_pEnemyManager->GetAct(j))
+			for (int j = 0; j < 50; j++)
 			{
-				if (!bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
+				if (g_pEnemyManager->GetAct(j))
 				{
-					bulletList[i]->SetActive(false);
-					g_pEnemyManager->CrashBullet(j);
+					if (!bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pEnemyManager->GetCollision(j)))
+					{
+						bulletList[i]->SetActive(false);
+						g_pEnemyManager->CrashBullet(j);
+						bulletCount--;
+					}
+					else {}
 				}
-				else {}
 			}
 		}
 	}
 	return NULL;
+}
+
+void CBulletManager::DelBullet()
+{
+	bulletCount--;
 }

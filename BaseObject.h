@@ -16,13 +16,13 @@ public:
 	virtual ~CBaseObject();
 
 public:
-	void SetUpCollision();
+	void SetUpCollision(int x, int y, int w, int h);
 	bool CheckCollision(Vector2D vPos);
 	bool CheckCollision(CImageInfo* collision1, CImageInfo* collsion2);
 	__inline CImageInfo* GetCollision() { return &m_kCollision; };
 	__inline Vector2D GetCollision(Vector2D vPos) {	return vPos; }
 
 public:
-	bool Pulse();
+	bool Pulse(int x, int y, int w, int h);
 };
 

@@ -1,2 +1,77 @@
-﻿  d3d9GameBase.vcxproj -> D:\Game\ShootingGame\Debug\d3d9GameBase.exe
+﻿  PlayerInfo.cpp
+d:\game\shootinggame\playerinfo.cpp(43): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(52): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(102): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(118): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(119): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\playerinfo.cpp(120): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Enemy.cpp
+d:\game\shootinggame\enemy.cpp(33): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\enemy.cpp(43): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\enemy.cpp(126): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\enemy.cpp(179): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\enemy.cpp(195): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\enemy.cpp(196): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\enemy.cpp(198): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Bullet.cpp
+d:\game\shootinggame\bullet.cpp(28): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(30): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(39): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(41): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(50): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(52): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(77): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(79): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(104): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(106): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\bullet.cpp(161): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  BackGround.cpp
+d:\game\shootinggame\background.cpp(43): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  stdafx.cpp
+  d3d9GameBase.cpp
+  Vector2d.cpp
+d:\game\shootinggame\vector2d.cpp(69): warning C4244: '/=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\game\shootinggame\vector2d.cpp(70): warning C4244: '/=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TimeManager.cpp
+  TextureManager.cpp
+d:\game\shootinggame\texturemanager.cpp(84): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(568): note: 'stricmp' 선언을 참조하십시오.
+d:\game\shootinggame\texturemanager.cpp(93): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오.
+  System.cpp
+d:\game\shootinggame\system.cpp(59): warning C4101: 'buffer' :참조되지 않은 지역 변수입니다.
+  Menu.cpp
+  MainProc.cpp
+  Intro.cpp
+  InputManager.cpp
+  InGame.cpp
+  ImageManager.cpp
+d:\game\shootinggame\imagemanager.cpp(35): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(568): note: 'stricmp' 선언을 참조하십시오.
+d:\game\shootinggame\imagemanager.cpp(43): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: 'strcpy' 선언을 참조하십시오.
+  ImageInfo.cpp
+  GraphicManager.cpp
+d:\game\shootinggame\graphicmanager.cpp(214): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1396): note: '_vsnprintf' 선언을 참조하십시오.
+  Gdi.cpp
+d:\game\shootinggame\gdi.cpp(276): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  FrameSkip.cpp
+  FirstStage.cpp
+  EnemyManager.cpp
+d:\game\shootinggame\enemymanager.cpp(49): warning C4154: 배열 식을 삭제했습니다. 포인터로 변환이 제공됩니다.
+  BulletManager.cpp
+d:\game\shootinggame\bulletmanager.cpp(44): warning C4800: 'int': 'true' 또는 'false'로 bool 값을 강제하고 있습니다(성능 경고).
+d:\game\shootinggame\bulletmanager.cpp(51): warning C4154: 배열 식을 삭제했습니다. 포인터로 변환이 제공됩니다.
+  BaseWindow.cpp
+  코드를 생성하고 있습니다...
+d:\game\shootinggame\bulletmanager.cpp(65): warning C4715: 'CBulletManager::OnObject': 모든 제어 경로에서 값을 반환하지는 않습니다.
+d:\game\shootinggame\enemymanager.cpp(62): warning C4715: 'CEnemyManager::OnObject': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  컴파일하고 있습니다...
+  BaseRender.cpp
+  BaseObject.cpp
+  코드를 생성하고 있습니다...
+  d3d9GameBase.vcxproj -> D:\Game\ShootingGame\Debug\d3d9GameBase.exe
   d3d9GameBase.vcxproj -> D:\Game\ShootingGame\Debug\d3d9GameBase.pdb (Full PDB)

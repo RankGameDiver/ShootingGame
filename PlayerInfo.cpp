@@ -34,22 +34,22 @@ bool CPlayerInfo::Initialize()
 
 	m_nLife = MAX_PLAYER_LIFE;
 
+	m_vWH.x = 64;
+	m_vWH.y = 100;
+
 	//	기본 동작 애니메이션
 	for (int i = 0; i < 8; i++)
 	{
-		m_pImageInfo[i].SetRect(i * 64, 0, 64, 100);
+		m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 	}
 	CBaseRender::Load("./Images/주인공.png");
-
-	m_vOffset.x = -32.0f;
-	m_vOffset.y = -32.0f;
 
 	m_vPos.x = 240;
 	m_vPos.y = 600;
 
 	m_pGameFrame = new CFrameSkip();
 
-	CBaseObject::SetUpCollision();
+	CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y); // x, y, w, h
 	attackDelay = 30;
 
 	return true;
@@ -94,12 +94,12 @@ bool CPlayerInfo::Pulse()
 		deltaTime += fTimeStep;
 	}
 
-	if (CheckCollision(Vector2D(10, 10)))
+	/*if (CheckCollision(Vector2D(10, 10)))
 	{
 		m_vPos.x = 500;
 		m_vPos.y = 500;
-	}
-	CBaseObject::Pulse();
+	}*/
+	CBaseObject::Pulse(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
 
 	if (m_nLife <= 0)
 	{

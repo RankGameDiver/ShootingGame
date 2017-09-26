@@ -26,8 +26,8 @@ bool CBackGround::Initialize()
 	m_vScale.y = 1.0f;
 	m_vScale.z = 1.0f;
 
-	SetPos(m_vPos);
-	SetScale(m_vScale);
+	/*SetPos(m_vPos);
+	SetScale(m_vScale);*/
 
 	return true;
 }
@@ -40,7 +40,7 @@ void CBackGround::Terminate()
 
 bool CBackGround::Pulse()
 {
-	CBaseObject::Pulse();
+	CBaseObject::Pulse(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
 
 	m_kImageInfo = m_pImageInfo[0];
 

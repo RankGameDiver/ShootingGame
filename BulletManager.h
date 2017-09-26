@@ -6,8 +6,10 @@ class CPlayerInfo;
 class CBulletManager : public CBaseObject
 {
 private:
-	CBullet* bulletList[200];
+	CBullet* bulletList[50];
 
+public :
+	int bulletCount; // 현재 생성되어 있는 총알의 개수
 public:
 	CBulletManager();
 	~CBulletManager();
@@ -20,4 +22,5 @@ public:
 
 	CBullet* OnObject();
 	CImageInfo* CheckCol(bool bulletType);
+	void DelBullet();
 };
