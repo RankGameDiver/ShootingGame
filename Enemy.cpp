@@ -22,6 +22,9 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 	bulletList = new CBulletManager;
 	bulletList->Init();
 
+	frame = 0;
+	deltaTime = 0;
+
 	switch (m_eEnemyKind)
 	{
 	case 0: // 바나나
@@ -50,7 +53,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		m_vWH.y = 76;
 		for (int i = 0; i < 8; i++)
 		{
-			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
 		CBaseRender::Load("./Images/토끼.png");
 		break;
@@ -60,7 +63,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		m_vWH.y = 76;
 		for (int i = 0; i < 8; i++)
 		{
-			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
 		CBaseRender::Load("./Images/인형.png");
 		break;
@@ -70,7 +73,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		m_vWH.y = 76;
 		for (int i = 0; i < 8; i++)
 		{
-			m_pImageInfo[i].SetRect(i * 96, 0, 96, 76);
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
 		CBaseRender::Load("./Images/콩.png");
 		break;
@@ -80,7 +83,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		m_vWH.y = 76;
 		for (int i = 0; i < 8; i++)
 		{
-			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
 		CBaseRender::Load("./Images/호두까기.png");
 		break;
@@ -90,7 +93,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		m_vWH.y = 76;
 		for (int i = 0; i < 6; i++)
 		{
-			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
 		CBaseRender::Load("./Images/강아지.png");
 		break;
@@ -100,7 +103,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		m_vWH.y = 76;
 		for (int i = 0; i < 6; i++)
 		{
-			m_pImageInfo[i].SetRect(i * 96, 0, 96, 76);
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
 		CBaseRender::Load("./Images/보라색.png");
 		break;
@@ -110,7 +113,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 		m_vWH.y = 76;
 		for (int i = 0; i < 6; i++)
 		{
-			m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
 		CBaseRender::Load("./Images/호박.png");
 		break;
@@ -139,9 +142,6 @@ bool CEnemy::Pulse()
 	float fTimeStep = CTimeManager::GetTimeStep();
 	if (m_pGameFrame->Update(fTimeStep))
 	{
-		static unsigned int frame = 0;
-		static float deltaTime = 0;
-
 		if (frame > 5)
 		{
 			frame = 0;

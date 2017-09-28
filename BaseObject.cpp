@@ -35,7 +35,7 @@ bool CBaseObject::CheckCollision(Vector2D vPos) // 콜라이더 충돌 체크(좌표로 충�
 
 bool CBaseObject::CheckCollision(CImageInfo* collision1, CImageInfo* collision2) // 콜라이더 충돌 체크
 {
-	collision1->left -= 9;
+//	collision1->left -= 9;
 	int left2 = collision2->left;
 	int right2 = collision2->right;
 	int top2 = collision2->top;
@@ -56,7 +56,6 @@ bool CBaseObject::CheckCollision(CImageInfo* collision1, CImageInfo* collision2)
 	POINT rb;
 	rb.x = right2;
 	rb.y = bottom2;
-
 
 	if (PtInRect(collision1, lt) || PtInRect(collision1, lb) || PtInRect(collision1, rt) || PtInRect(collision1, rb))
 	{

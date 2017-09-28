@@ -1,12 +1,13 @@
 #pragma once
 
 //class CEnemyManager;
-//class CPlayerInfo;
+class CPlayerInfo;
 
 class CBulletManager : public CBaseObject
 {
 private:
 	CBullet* bulletList[50];
+	CPlayerInfo* m_player;
 
 public :
 	int bulletCount; // 현재 생성되어 있는 총알의 개수

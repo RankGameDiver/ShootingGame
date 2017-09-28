@@ -38,6 +38,8 @@ public:
 	__inline int GetLife() const;
 	//
 
+	__inline CPlayerInfo GetPlayer();
+
 	bool Initialize(); // 초기 설정
 	void Terminate(); // 제거
 	bool Pulse(); // 매 프레임
@@ -72,4 +74,9 @@ __inline void CPlayerInfo::SetLife(int nLife) // 생명 갯수 설정
 __inline int CPlayerInfo::GetLife() const // 현재 생명의 수를 리턴
 {
 	return m_nLife;
+}
+
+__inline CPlayerInfo CPlayerInfo::GetPlayer()
+{
+	return CPlayerInfo();
 }
