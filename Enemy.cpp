@@ -121,8 +121,6 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
 	m_vPos.x = pos.x;
 	m_vPos.y = pos.y;
 
-	m_pGameFrame = new CFrameSkip();
-
 	CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
 	return true;
 }

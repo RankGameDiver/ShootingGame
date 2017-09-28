@@ -117,9 +117,6 @@ bool CBullet::Initialize(int m_eEnemyKind, Vector2D pos)
 	default:
 		break;
 	}
-
-	m_pGameFrame = new CFrameSkip();
-
 	
 	return true;
 }

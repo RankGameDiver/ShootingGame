@@ -5,11 +5,12 @@ class CBaseObject :	public CBaseRender,
 					public CFrameSkip
 {
 protected:
-	SIZE m_siCollision;
-	POINT m_ptCollisionOffset; // 콜라이더 중심점
+	SIZE	m_siCollision;
+	POINT	m_ptCollisionOffset; // 콜라이더 중심점
 
-	CImageInfo m_kCollision;
-	CImageInfo* m_pImageInfo;
+	CImageInfo		m_kCollision;
+	CImageInfo*		m_pImageInfo;
+	CFrameSkip*		m_pGameFrame;
 
 public:
 	CBaseObject();

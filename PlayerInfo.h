@@ -2,11 +2,11 @@
 #include "BaseObject.h"
 #include "InputHandler.h"
 
-class CBullet;
+class CBulletManager;
 
-class CPlayerInfo : public CBaseObject, // PlayerInfo(플레이어 정보)는 BaseObject와 IInputHandler를 상속받고 있다
-					public IInputHandler,
-					public CSingleton<CEnemyManager>
+class CPlayerInfo :	public CBaseObject,
+					public IInputHandler
+					
 {
 protected:
 	bool m_bIsActive; // 움직이고 있는지 확인
@@ -18,7 +18,6 @@ protected:
 	bool m_bIsPressDown; // 아래쪽 화살표
 	bool m_bIsPressZ; // Z키
 
-	CFrameSkip*		m_pGameFrame;
 	CBulletManager* bulletList;
 
 	int m_nLife; // 플레이어 생명

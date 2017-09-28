@@ -1,6 +1,6 @@
 #pragma once
 
-class CBulletManager;
+//class CBulletManager;
 
 class CEnemyManager : public CSingleton<CEnemyManager>
 {

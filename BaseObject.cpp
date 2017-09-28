@@ -8,6 +8,7 @@ CBaseObject::CBaseObject()
 	m_ptCollisionOffset.y = 0;
 	m_kCollision.SetRect(0, 0, 0, 0);
 	m_pImageInfo = NULL;
+	m_pGameFrame = new CFrameSkip();
 }
 
 CBaseObject::~CBaseObject()

@@ -1,12 +1,9 @@
 #pragma once
-class CPlayerInfo;
 
 class CBullet : public CBaseObject
 {
 protected:
 	bool m_bIsActive = false; // 활성화
-	CPlayerInfo*	m_pPlayer;
-	CFrameSkip*		m_pGameFrame;
 	const int damage = 1; // 데미지
 
 public:

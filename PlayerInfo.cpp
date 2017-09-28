@@ -15,11 +15,9 @@ CPlayerInfo::CPlayerInfo()
 	m_pImageInfo = new CImageInfo[MAX_PLAYER_FRAME];
 }
 
-
 CPlayerInfo::~CPlayerInfo()
 {
 }
-
 
 bool CPlayerInfo::Initialize()
 {
@@ -28,9 +26,6 @@ bool CPlayerInfo::Initialize()
 
 	bulletList = new CBulletManager;
 	bulletList->Init();
-
-	m_pGameFrame = new CFrameSkip;
-	m_pGameFrame->SetFramePerSec(60);
 
 	m_nLife = MAX_PLAYER_LIFE;
 
@@ -47,11 +42,8 @@ bool CPlayerInfo::Initialize()
 	m_vPos.x = 240;
 	m_vPos.y = 600;
 
-	m_pGameFrame = new CFrameSkip();
-
-	CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y); // x, y, w, h
 	attackDelay = 30;
-
+	CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y); // x, y, w, h
 	return true;
 }
 
@@ -94,11 +86,6 @@ bool CPlayerInfo::Pulse()
 		deltaTime += fTimeStep;
 	}
 
-	/*if (CheckCollision(Vector2D(10, 10)))
-	{
-		m_vPos.x = 500;
-		m_vPos.y = 500;
-	}*/
 	CBaseObject::Pulse(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
 
 	if (m_nLife <= 0)

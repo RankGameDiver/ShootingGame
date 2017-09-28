@@ -25,7 +25,6 @@ protected:
 	int m_nLife; // 몬스터 생명 수
 	bool move;// true면 오른쪽으로 이동, false면 왼쪽으로 이동
 
-	CFrameSkip*		m_pGameFrame;
 	CBulletManager* bulletList;
 
 public:

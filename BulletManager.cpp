@@ -66,7 +66,7 @@ CBullet* CBulletManager::OnObject()
 
 CImageInfo* CBulletManager::CheckCol(bool bulletType) // false는 플레이어 탄환, true는 몬스터 탄환
 {
-	for (int i = 0; i < MAXBULLET; i++)
+	for (int i = 0; i < bulletCount; i++)
 	{
 		if (bulletList[i]->GetActive())
 		{
@@ -80,6 +80,9 @@ CImageInfo* CBulletManager::CheckCol(bool bulletType) // false는 플레이어 탄환, 
 						g_pEnemyManager->CrashBullet(j);
 						bulletCount--;
 					}
+					/*else if (bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pPlayerInfo->GetCollision(j)))
+					{
+					}*/
 					else {}
 				}
 			}

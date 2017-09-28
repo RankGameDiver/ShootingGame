@@ -26,9 +26,6 @@ bool CBackGround::Initialize()
 	m_vScale.y = 1.0f;
 	m_vScale.z = 1.0f;
 
-	/*SetPos(m_vPos);
-	SetScale(m_vScale);*/
-
 	return true;
 }
 

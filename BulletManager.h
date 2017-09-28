@@ -1,7 +1,7 @@
 #pragma once
 
-class CEnemyManager;
-class CPlayerInfo;
+//class CEnemyManager;
+//class CPlayerInfo;
 
 class CBulletManager : public CBaseObject
 {
