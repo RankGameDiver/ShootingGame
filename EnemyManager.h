@@ -12,13 +12,14 @@ public:
 	~CEnemyManager();
 
 public:
-	void Initialize();
+	void Initialize(CPlayerInfo* player);
 	void Render();
 	void Pulse();
 	void Terminate();
 
 	CEnemy* OnObject();
 	CEnemy* SetAct(int temp, bool bIsActive);
+	CPlayerInfo* m_player;
 	bool GetAct(int temp);
 	CImageInfo* GetCollision(int temp);
 	void CrashBullet(int temp);

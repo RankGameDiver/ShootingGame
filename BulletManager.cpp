@@ -23,6 +23,18 @@ void CBulletManager::Init()
 	bulletCount = 0;
 }
 
+void CBulletManager::Init(CPlayerInfo* player)
+{
+	for (int i = 0; i < MAXBULLET; i++)
+	{
+		bulletList[i] = new CBullet;
+		bulletList[i]->Initialize(0, Vector2D(-100, -100));
+		bulletList[i]->SetActive(false);
+	}
+	bulletCount = 0;
+	m_player = player->GetPlayer();
+}
+
 void CBulletManager::Render()
 {
 	for (int i = 0; i < MAXBULLET; i++)
@@ -80,9 +92,12 @@ CImageInfo* CBulletManager::CheckCol(bool bulletType) // false는 플레이어 탄환, 
 						g_pEnemyManager->CrashBullet(j);
 						bulletCount--;
 					}
-					/*else if (bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), g_pPlayerInfo->GetCollision(j)))
+					else if (bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), m_player->GetCollision()))
 					{
-					}*/
+						bulletList[i]->SetActive(false);
+						m_player->DecrementLife();
+						bulletCount--;
+					}
 					else {}
 				}
 			}

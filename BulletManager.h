@@ -17,6 +17,7 @@ public:
 
 public:
 	void Init(); // Initualize
+	void Init(CPlayerInfo* player);
 	void Render();
 	void Frame(int m_bulletType); // Pulse
 	void Terminate();

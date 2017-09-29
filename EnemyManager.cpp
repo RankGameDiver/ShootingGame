@@ -12,14 +12,15 @@ CEnemyManager::~CEnemyManager()
 
 }
 
-void CEnemyManager::Initialize()
+void CEnemyManager::Initialize(CPlayerInfo* player)
 {
 	for (int i = 0; i < MAXENEMY; i++)
 	{
 		enemyList[i] = new CEnemy;
-		enemyList[i]->Initialize(0, Vector2D(100, 100));
+		enemyList[i]->Initialize(0, Vector2D(100, 100), player);
 		enemyList[i]->SetActive(false);
 	}
+	
 }
 
 void CEnemyManager::Render()

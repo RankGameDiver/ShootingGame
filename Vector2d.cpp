@@ -104,8 +104,8 @@ POINTS VectorToPOINTS(const Vector2D& v)
 POINT VectorToPOINT(const Vector2D& v)
 {
 	POINT p;
-	p.x = (long)v.x;
-	p.y = (long)v.y;
+	p.x = (int)v.x;
+	p.y = (int)v.y;
 
 	return p;
 }

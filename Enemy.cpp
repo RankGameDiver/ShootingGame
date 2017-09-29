@@ -14,13 +14,13 @@ CEnemy::~CEnemy()
 {
 }
 
-bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos)
+bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 {
 	CBaseRender::Initialize();
 	CTimeManager::Initialize();
 
 	bulletList = new CBulletManager;
-	bulletList->Init();
+	bulletList->Init(player);
 
 	frame = 0;
 	deltaTime = 0;

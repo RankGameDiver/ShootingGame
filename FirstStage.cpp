@@ -21,8 +21,8 @@ bool CFirstStage::Initialize()
 	g_pInputManager->SetInputHandler(m_pPlayer);
 
 	m_pEnemyManager = new CEnemyManager;
-	m_pEnemyManager->Initialize();
-	m_pEnemyManager->OnObject()->Initialize(0, Vector2D(100, 100));
+	m_pEnemyManager->Initialize(m_pPlayer);
+	m_pEnemyManager->OnObject()->Initialize(0, Vector2D(100, 100), m_pPlayer);
 
 	return true;
 }

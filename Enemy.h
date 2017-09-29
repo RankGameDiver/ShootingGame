@@ -29,7 +29,7 @@ protected:
 	float deltaTime;
 
 	CBulletManager* bulletList;
-
+	CPlayerInfo* m_player;
 public:
 	CEnemy();
 	virtual ~CEnemy();
@@ -46,7 +46,7 @@ public:
 
 	__inline D3DXVECTOR3 GetScale(); // 시작 위치 반환
 
-	bool Initialize(int m_eEnemyKind, Vector2D pos); // 초기 설정
+	bool Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player); // 초기 설정
 	void Terminate(); // 제거
 	bool Pulse(); // 매 프레임
 	void Render(); // 화면에 그림
