@@ -19,16 +19,16 @@ bool CBullet::Initialize(int m_eEnemyKind, Vector2D pos)
 
 	switch (m_eEnemyKind)
 	{
-	case 0:
-		m_pImageInfo = new CImageInfo[3];
-		m_vWH.x = 24;
-		m_vWH.y = 49;
-		for (int i = 0; i < 3; i++)
+	case 0: // 리빙돌
+		m_pImageInfo = new CImageInfo[5];
+		m_vWH.x = 70;
+		m_vWH.y = 718;
+		for (int i = 0; i < 5; i++)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
 		CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
-		CBaseRender::Load("./Images/총알.png");
+		CBaseRender::Load("./Images/리빙돌 공격.png");
 		break;
 	case 1: // 바나나
 		m_pImageInfo = new CImageInfo[4];
@@ -53,20 +53,24 @@ bool CBullet::Initialize(int m_eEnemyKind, Vector2D pos)
 		CBaseRender::Load("./Images/오너 공격.png");
 		break;
 	case 3: // 토끼
-		//m_pImageInfo = new CImageInfo[8];
-		//for (int i = 0; i < 8; i++)
-		//{
-		//	m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
-		//}
-		//CBaseRender::Load("./Images/토끼 공격.png");
+		m_pImageInfo = new CImageInfo[8];
+		m_vWH.x = 56;
+		m_vWH.y = 80;
+		for (int i = 0; i < 8; i++)
+		{
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
+		}
+		CBaseRender::Load("./Images/토끼 공격.png");
 		break;
 	case 4: // 인형
-		//m_pImageInfo = new CImageInfo[8];
-		//for (int i = 0; i < 8; i++)
-		//{
-		//	m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
-		//}
-		//CBaseRender::Load("./Images/인형 공격.png");
+		m_pImageInfo = new CImageInfo[8];
+		m_vWH.x = 24;
+		m_vWH.y = 49;
+		for (int i = 0; i < 8; i++)
+		{
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
+		}
+		CBaseRender::Load("./Images/인형 공격.png");
 		break;
 	case 5: // 콩
 		m_pImageInfo = new CImageInfo[6];
@@ -80,25 +84,19 @@ bool CBullet::Initialize(int m_eEnemyKind, Vector2D pos)
 		CBaseRender::Load("./Images/콩 공격.png");
 		break;
 	case 6: // 호두까기
-		//m_pImageInfo = new CImageInfo[8];
-		//for (int i = 0; i < 8; i++)
-		//{
-		//	m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
-		//}
-		//CBaseRender::Load("./Images/호두까기 공격.png");
-		break;
-	case 7: // 강아지
-		//m_pImageInfo = new CImageInfo[6];
-		//for (int i = 0; i < 6; i++)
-		//{
-		//	m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
-		//}
-		//CBaseRender::Load("./Images/강아지 공격.png");
+		m_pImageInfo = new CImageInfo[8];
+		m_vWH.x = 56;
+		m_vWH.y = 47;
+		for (int i = 0; i < 8; i++)
+		{
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
+		}
+		CBaseRender::Load("./Images/호두까기 공격.png");
 		break;
 	case 8: // 보라색
 		m_pImageInfo = new CImageInfo[3];
 		m_vWH.x = 56;
-		m_vWH.y = 76;
+		m_vWH.y = 60;
 		for (int i = 0; i < 3; i++)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
@@ -107,12 +105,49 @@ bool CBullet::Initialize(int m_eEnemyKind, Vector2D pos)
 		CBaseRender::Load("./Images/보라색 공격.png");
 		break;
 	case 9: // 호박
-		//m_pImageInfo = new CImageInfo[6];
-		//for (int i = 0; i < 6; i++)
-		//{
-		//	m_pImageInfo[i].SetRect(i * 56, 0, 56, 76);
-		//}
-		//CBaseRender::Load("./Images/호박 공격.png");
+		m_pImageInfo = new CImageInfo[6];
+		m_vWH.x = 56;
+		m_vWH.y = 80;
+		for (int i = 0; i < 6; i++)
+		{
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
+		}
+		CBaseRender::Load("./Images/호박 공격.png");
+		break;
+	case 10:
+		m_pImageInfo = new CImageInfo[1];
+		m_vWH.x = 23;
+		m_vWH.y = 35;
+		m_pImageInfo[0].SetRect(0, 0, m_vWH.x, m_vWH.y);
+		CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
+		CBaseRender::Load("./Images/공격1.png");
+	case 11:
+		m_pImageInfo = new CImageInfo[1];
+		m_vWH.x = 23;
+		m_vWH.y = 35;
+		m_pImageInfo[0].SetRect(0, 0, m_vWH.x, m_vWH.y);
+		CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
+		CBaseRender::Load("./Images/공격1 강화.png");
+	case 12:
+		m_pImageInfo = new CImageInfo[3];
+		m_vWH.x = 21;
+		m_vWH.y = 44;
+		for (int i = 0; i < 3; i++)
+		{
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
+		}
+		CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
+		CBaseRender::Load("./Images/공격2.png");
+	case 13:
+		m_pImageInfo = new CImageInfo[3];
+		m_vWH.x = 21;
+		m_vWH.y = 44;
+		for (int i = 0; i < 3; i++)
+		{
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
+		}
+		CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
+		CBaseRender::Load("./Images/공격2 강화.png");
 		break;
 	default:
 		break;

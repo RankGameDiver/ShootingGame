@@ -121,9 +121,9 @@ void CPlayerInfo::KeyboardHandler(void)
 	if (!g_pKeyCodeScan(VK_UP))		{ m_bIsPressUp = false; }
 	if (g_pKeyCodeScan(VK_DOWN))	{ m_bIsPressDown = true; }
 	if (!g_pKeyCodeScan(VK_DOWN))	{ m_bIsPressDown = false; }
-	if (g_pKeyCodeScan('Z') && attackDelay <= 0)		
+	if (g_pKeyCodeScan('Z') && attackDelay <= 0)
 	{ 
-		bulletList->OnObject()->Initialize(0, Vector2D(m_vPos.x, m_vPos.y));
+		bulletList->OnObject()->Initialize(9, Vector2D(m_vPos.x, m_vPos.y));
 		attackDelay = 30;
 	}
 	if (!g_pKeyCodeScan('Z'))		{ m_bIsPressZ = false; }
