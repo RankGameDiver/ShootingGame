@@ -1,9 +1,26 @@
-﻿  PlayerInfo.cpp
-d:\game\shootinggame\playerinfo.cpp(38): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\playerinfo.cpp(46): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\playerinfo.cpp(89): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\playerinfo.cpp(105): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\playerinfo.cpp(106): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\game\shootinggame\playerinfo.cpp(107): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  d3d9GameBase.vcxproj -> D:\Game\ShootingGame\Debug\d3d9GameBase.exe
-  d3d9GameBase.vcxproj -> D:\Game\ShootingGame\Debug\d3d9GameBase.pdb (Full PDB)
+﻿  Bullet.cpp
+d:\games\shootinggame\bullet.cpp(28): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(30): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(39): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(41): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(50): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(52): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(61): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(71): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(81): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(83): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(92): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(102): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(104): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(113): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(123): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(125): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(134): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(136): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(145): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(147): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(156): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(158): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\games\shootinggame\bullet.cpp(202): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  d3d9GameBase.vcxproj -> D:\Games\ShootingGame\Debug\d3d9GameBase.exe
+  d3d9GameBase.vcxproj -> D:\Games\ShootingGame\Debug\d3d9GameBase.pdb (Full PDB)

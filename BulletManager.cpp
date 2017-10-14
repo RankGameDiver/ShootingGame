@@ -92,12 +92,12 @@ CImageInfo* CBulletManager::CheckCol(bool bulletType) // false는 플레이어 탄환, 
 						g_pEnemyManager->CrashBullet(j);
 						bulletCount--;
 					}
-					/*else if (bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), m_player->GetCollision()))
+					else if (bulletType && CBaseObject::CheckCollision(bulletList[i]->GetCollision(), m_player->GetCollision()))
 					{
 						bulletList[i]->SetActive(false);
 						m_player->DecrementLife();
 						bulletCount--;
-					}*/
+					}
 					else {}
 				}
 			}

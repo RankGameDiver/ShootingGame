@@ -115,20 +115,6 @@ bool CBullet::Initialize(int m_eEnemyKind, Vector2D pos)
 		CBaseRender::Load("./Images/호박 공격.png");
 		break;
 	case 10:
-		m_pImageInfo = new CImageInfo[1];
-		m_vWH.x = 23;
-		m_vWH.y = 35;
-		m_pImageInfo[0].SetRect(0, 0, m_vWH.x, m_vWH.y);
-		CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
-		CBaseRender::Load("./Images/공격1.png");
-	case 11:
-		m_pImageInfo = new CImageInfo[1];
-		m_vWH.x = 23;
-		m_vWH.y = 35;
-		m_pImageInfo[0].SetRect(0, 0, m_vWH.x, m_vWH.y);
-		CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
-		CBaseRender::Load("./Images/공격1 강화.png");
-	case 12:
 		m_pImageInfo = new CImageInfo[3];
 		m_vWH.x = 21;
 		m_vWH.y = 44;
@@ -138,7 +124,8 @@ bool CBullet::Initialize(int m_eEnemyKind, Vector2D pos)
 		}
 		CBaseObject::SetUpCollision(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
 		CBaseRender::Load("./Images/공격2.png");
-	case 13:
+		break;
+	case 11:
 		m_pImageInfo = new CImageInfo[3];
 		m_vWH.x = 21;
 		m_vWH.y = 44;

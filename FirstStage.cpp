@@ -22,7 +22,7 @@ bool CFirstStage::Initialize()
 
 	m_pEnemyManager = new CEnemyManager;
 	m_pEnemyManager->Initialize(m_pPlayer);
-	m_pEnemyManager->OnObject()->Initialize(0, Vector2D(100, 100), m_pPlayer);
+	m_pEnemyManager->OnObject()->Initialize(1, Vector2D(100, 100), m_pPlayer);
 
 	return true;
 }

@@ -24,10 +24,21 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 
 	frame = 0;
 	deltaTime = 0;
+	//type = m_eEnemyKind;
 
 	switch (m_eEnemyKind)
 	{
-	case 0: // 바나나
+	case 0: // 리빙돌
+		m_pImageInfo = new CImageInfo[7];
+		m_vWH.x = 110;
+		m_vWH.y = 136;
+		for (int i = 0; i < 7; i++)
+		{
+			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
+		}
+		CBaseRender::Load("./Images/리빙돌.png");
+		break;
+	case 1: // 바나나
 		m_pImageInfo = new CImageInfo[6];
 		m_vWH.x = 56;
 		m_vWH.y = 80;
@@ -37,7 +48,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		}
 		CBaseRender::Load("./Images/바나나.png");
 		break;
-	case 1: // 오너
+	case 2: // 오너
 		m_pImageInfo = new CImageInfo[5];
 		m_vWH.x = 96;
 		m_vWH.y = 76;
@@ -47,7 +58,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		}
 		CBaseRender::Load("./Images/오너.png");
 		break;
-	case 2: // 토끼
+	case 3: // 토끼
 		m_pImageInfo = new CImageInfo[8];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
@@ -57,7 +68,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		}
 		CBaseRender::Load("./Images/토끼.png");
 		break;
-	case 3: // 인형
+	case 4: // 인형
 		m_pImageInfo = new CImageInfo[8];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
@@ -67,7 +78,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		}
 		CBaseRender::Load("./Images/인형.png");
 		break;
-	case 4: // 콩
+	case 5: // 콩
 		m_pImageInfo = new CImageInfo[8];
 		m_vWH.x = 96;
 		m_vWH.y = 76;
@@ -77,7 +88,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		}
 		CBaseRender::Load("./Images/콩.png");
 		break;
-	case 5: // 호두까기
+	case 6: // 호두까기
 		m_pImageInfo = new CImageInfo[8];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
@@ -87,7 +98,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		}
 		CBaseRender::Load("./Images/호두까기.png");
 		break;
-	case 6: // 강아지
+	case 7: // 강아지
 		m_pImageInfo = new CImageInfo[6];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
@@ -97,7 +108,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		}
 		CBaseRender::Load("./Images/강아지.png");
 		break;
-	case 7: // 보라색
+	case 8: // 보라색
 		m_pImageInfo = new CImageInfo[6];
 		m_vWH.x = 96;
 		m_vWH.y = 76;
@@ -107,7 +118,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		}
 		CBaseRender::Load("./Images/보라색.png");
 		break;
-	case 8: // 호박
+	case 9: // 호박
 		m_pImageInfo = new CImageInfo[6];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
@@ -145,7 +156,7 @@ bool CEnemy::Pulse()
 		if (frame > 5)
 		{
 			frame = 0;
-			bulletList->OnObject()->Initialize(1, Vector2D(m_vPos.x, m_vPos.y));
+			bulletList->OnObject()->Initialize(1, Vector2D(m_vPos.x, m_vPos.y)); // 총알 종류 변경
 		}
 
 		m_kImageInfo = m_pImageInfo[frame];
