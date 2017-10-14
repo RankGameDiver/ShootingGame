@@ -24,12 +24,15 @@ protected:
 
 	int m_nLife; // 몬스터 생명 수
 	bool move;// true면 오른쪽으로 이동, false면 왼쪽으로 이동
+	int m_type; // 몬스터 종류
 
 	int frame;
 	float deltaTime;
+	int maxFrame;
 
 	CBulletManager* bulletList;
 	CPlayerInfo* m_player;
+
 public:
 	CEnemy();
 	virtual ~CEnemy();
@@ -43,10 +46,12 @@ public:
 	_inline int GetLife() const; // 현재 체력을 반환
 
 	__inline D3DXVECTOR3 GetPos(); // 시작 위치 반환
-
 	__inline D3DXVECTOR3 GetScale(); // 시작 위치 반환
 
-	bool Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player); // 초기 설정
+	__inline void SetEnemyType(int enemyType); // 몬스터 종류를 설정
+	__inline int GetEnemyType(); // 몬스터 종류를 반환
+
+	bool Initialize(Vector2D pos, CPlayerInfo* player); // 초기 설정
 	void Terminate(); // 제거
 	bool Pulse(); // 매 프레임
 	void Render(); // 화면에 그림
@@ -87,3 +92,12 @@ __inline D3DXVECTOR3 CEnemy::GetScale() // 시작 위치 반환
 	return m_vPos;
 }
 
+__inline void CEnemy::SetEnemyType(int enemyType)
+{
+	m_type = enemyType;
+}
+
+__inline int CEnemy::GetEnemyType()
+{
+	return m_type;
+}

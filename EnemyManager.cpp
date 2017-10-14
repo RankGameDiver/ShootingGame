@@ -17,7 +17,7 @@ void CEnemyManager::Initialize(CPlayerInfo* player)
 	for (int i = 0; i < MAXENEMY; i++)
 	{
 		enemyList[i] = new CEnemy;
-		enemyList[i]->Initialize(0, Vector2D(100, 100), player);
+		enemyList[i]->Initialize(Vector2D(100, 100), player);
 		enemyList[i]->SetActive(false);
 	}
 	
@@ -50,13 +50,14 @@ void CEnemyManager::Terminate()
 	delete[] enemyList;
 }
 
-CEnemy* CEnemyManager::OnObject()
+CEnemy* CEnemyManager::OnObject(int enemyType)
 {
 	for (int i = 0; i < MAXENEMY; i++)
 	{
 		if (!enemyList[i]->GetActive())
 		{
 			enemyList[i]->SetActive(true);
+			enemyList[i]->SetEnemyType(enemyType);
 			return enemyList[i];
 		}
 	}

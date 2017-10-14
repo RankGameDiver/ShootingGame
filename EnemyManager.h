@@ -17,7 +17,7 @@ public:
 	void Pulse();
 	void Terminate();
 
-	CEnemy* OnObject();
+	CEnemy* OnObject(int enemyType);
 	CEnemy* SetAct(int temp, bool bIsActive);
 	CPlayerInfo* m_player;
 	bool GetAct(int temp);

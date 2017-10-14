@@ -65,6 +65,8 @@
 #include "Intro.h"
 #include "Menu.h"
 #include "FirstStage.h"
+#include "SecondStage.h"
+#include "ThirdStage.h"
 #include "System.h"
 
 

@@ -38,7 +38,6 @@ void CMenu::Terminate()
 bool CMenu::Pulse()
 {
 	CBaseRender::Pulse();
-	
 	return true;
 }
 

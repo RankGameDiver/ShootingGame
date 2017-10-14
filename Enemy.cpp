@@ -8,13 +8,14 @@ CEnemy::CEnemy()
 
 	m_nLife = MAX_ENEMY_LIFE;
 	move = true; 
+	m_type = 0;
 }
 
 CEnemy::~CEnemy()
 {
 }
 
-bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
+bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 {
 	CBaseRender::Initialize();
 	CTimeManager::Initialize();
@@ -24,12 +25,12 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 
 	frame = 0;
 	deltaTime = 0;
-	//type = m_eEnemyKind;
+	m_pImageInfo = new CImageInfo[8];
 
-	switch (m_eEnemyKind)
+	switch (m_type)
 	{
 	case 0: // 리빙돌
-		m_pImageInfo = new CImageInfo[7];
+		//m_pImageInfo = new CImageInfo[7];
 		m_vWH.x = 110;
 		m_vWH.y = 136;
 		for (int i = 0; i < 7; i++)
@@ -39,7 +40,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/리빙돌.png");
 		break;
 	case 1: // 바나나
-		m_pImageInfo = new CImageInfo[6];
+		//m_pImageInfo = new CImageInfo[6];
 		m_vWH.x = 56;
 		m_vWH.y = 80;
 		for (int i = 0; i < 6; i++)
@@ -49,7 +50,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/바나나.png");
 		break;
 	case 2: // 오너
-		m_pImageInfo = new CImageInfo[5];
+		//m_pImageInfo = new CImageInfo[5];
 		m_vWH.x = 96;
 		m_vWH.y = 76;
 		for (int i = 0; i < 5; i++)
@@ -59,7 +60,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/오너.png");
 		break;
 	case 3: // 토끼
-		m_pImageInfo = new CImageInfo[8];
+		//m_pImageInfo = new CImageInfo[8];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
 		for (int i = 0; i < 8; i++)
@@ -69,7 +70,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/토끼.png");
 		break;
 	case 4: // 인형
-		m_pImageInfo = new CImageInfo[8];
+		//m_pImageInfo = new CImageInfo[8];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
 		for (int i = 0; i < 8; i++)
@@ -79,7 +80,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/인형.png");
 		break;
 	case 5: // 콩
-		m_pImageInfo = new CImageInfo[8];
+		//m_pImageInfo = new CImageInfo[8];
 		m_vWH.x = 96;
 		m_vWH.y = 76;
 		for (int i = 0; i < 8; i++)
@@ -89,7 +90,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/콩.png");
 		break;
 	case 6: // 호두까기
-		m_pImageInfo = new CImageInfo[8];
+		//m_pImageInfo = new CImageInfo[8];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
 		for (int i = 0; i < 8; i++)
@@ -99,7 +100,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/호두까기.png");
 		break;
 	case 7: // 강아지
-		m_pImageInfo = new CImageInfo[6];
+		//m_pImageInfo = new CImageInfo[6];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
 		for (int i = 0; i < 6; i++)
@@ -109,7 +110,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/강아지.png");
 		break;
 	case 8: // 보라색
-		m_pImageInfo = new CImageInfo[6];
+		//m_pImageInfo = new CImageInfo[6];
 		m_vWH.x = 96;
 		m_vWH.y = 76;
 		for (int i = 0; i < 6; i++)
@@ -119,7 +120,7 @@ bool CEnemy::Initialize(int m_eEnemyKind, Vector2D pos, CPlayerInfo* player)
 		CBaseRender::Load("./Images/보라색.png");
 		break;
 	case 9: // 호박
-		m_pImageInfo = new CImageInfo[6];
+		//m_pImageInfo = new CImageInfo[6];
 		m_vWH.x = 56;
 		m_vWH.y = 76;
 		for (int i = 0; i < 6; i++)
@@ -149,17 +150,21 @@ bool CEnemy::Pulse()
 	CTimeManager::Pulse();
 	bulletList->Frame(1);
 
+	if (m_type == 0)						maxFrame = 7;
+	else if (m_type == 1 || m_type >= 7)	maxFrame = 6;
+	else if (m_type == 2)					maxFrame = 5;
+	else if (m_type >= 3 && m_type <= 6)	maxFrame = 6;
+
 	// 애니메이션 프레임 속도 조절
 	float fTimeStep = CTimeManager::GetTimeStep();
 	if (m_pGameFrame->Update(fTimeStep))
 	{
-		if (frame > 5)
+		if (frame >= maxFrame)
 		{
 			frame = 0;
-			bulletList->OnObject()->Initialize(1, Vector2D(m_vPos.x, m_vPos.y)); // 총알 종류 변경
+			bulletList->OnObject(m_type)->Initialize(Vector2D(m_vPos.x, m_vPos.y)); // 총알 종류 변경
 		}
-
-		m_kImageInfo = m_pImageInfo[frame];
+		m_kImageInfo = m_pImageInfo[frame]; // 몬스터 이미지 출력
 		if (deltaTime >= 0.12f)
 		{
 			frame++;
@@ -190,6 +195,7 @@ bool CEnemy::Pulse()
 	if (m_nLife <= 0)
 	{
 		m_bIsActive = false;
+		delete[] m_pImageInfo;
 	}
 
 	return true;

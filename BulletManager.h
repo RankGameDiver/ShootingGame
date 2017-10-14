@@ -22,7 +22,7 @@ public:
 	void Frame(int m_bulletType); // Pulse
 	void Terminate();
 
-	CBullet* OnObject();
+	CBullet* OnObject(int type);
 	CImageInfo* CheckCol(bool bulletType);
 	void DelBullet();
 };

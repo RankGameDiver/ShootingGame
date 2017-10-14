@@ -17,7 +17,7 @@ void CBulletManager::Init()
 	for (int i = 0; i < MAXBULLET; i++)
 	{
 		bulletList[i] = new CBullet;
-		bulletList[i]->Initialize(0, Vector2D(-100, -100));
+		bulletList[i]->Initialize(Vector2D(-100, -100));
 		bulletList[i]->SetActive(false);
 	}
 	bulletCount = 0;
@@ -28,7 +28,7 @@ void CBulletManager::Init(CPlayerInfo* player)
 	for (int i = 0; i < MAXBULLET; i++)
 	{
 		bulletList[i] = new CBullet;
-		bulletList[i]->Initialize(0, Vector2D(-100, -100));
+		bulletList[i]->Initialize(Vector2D(-100, -100));
 		bulletList[i]->SetActive(false);
 	}
 	bulletCount = 0;
@@ -63,13 +63,14 @@ void CBulletManager::Terminate()
 	delete[] bulletList;
 }
 
-CBullet* CBulletManager::OnObject()
+CBullet* CBulletManager::OnObject(int bulletType)
 {
 	for (int i = 0; i < MAXBULLET; i++)
 	{
 		if (!bulletList[i]->GetActive())
 		{
 			bulletList[i]->SetActive(true);
+			bulletList[i]->SetBulletType(bulletType);
 			bulletCount++;
 			return bulletList[i];
 		}

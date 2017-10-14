@@ -78,12 +78,6 @@
     <ClCompile Include="MainProc.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Intro.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Input</Filter>
     </ClCompile>
@@ -102,14 +96,8 @@
     <ClCompile Include="ImageInfo.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="InGame.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="FirstStage.cpp">
-      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
       <Filter>Object</Filter>
@@ -122,6 +110,27 @@
     </ClCompile>
     <ClCompile Include="EnemyManager.cpp">
       <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstStage.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMenu.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="InGame.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Intro.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondStage.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdStage.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,15 +167,6 @@
     <ClInclude Include="MainProc.h">
       <Filter>Window</Filter>
     </ClInclude>
-    <ClInclude Include="IScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Intro.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Input</Filter>
     </ClInclude>
@@ -200,14 +200,8 @@
     <ClInclude Include="ImageInfo.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="InGame.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="FirstStage.h">
-      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="BackGround.h">
       <Filter>Object</Filter>
@@ -220,6 +214,30 @@
     </ClInclude>
     <ClInclude Include="EnemyManager.h">
       <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstStage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMenu.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="InGame.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Intro.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondStage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdStage.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

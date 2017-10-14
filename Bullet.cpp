@@ -10,14 +10,14 @@ CBullet::~CBullet()
 
 }
 
-bool CBullet::Initialize(int m_eEnemyKind, Vector2D pos)
+bool CBullet::Initialize(Vector2D pos)
 {
 	CBaseRender::Initialize();
 
 	m_vPos.x = pos.x;
 	m_vPos.y = pos.y;
 
-	switch (m_eEnemyKind)
+	switch (m_type)
 	{
 	case 0: // ¸®ºùµ¹
 		m_pImageInfo = new CImageInfo[5];
