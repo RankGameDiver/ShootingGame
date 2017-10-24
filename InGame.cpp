@@ -20,7 +20,9 @@ bool CInGame::Initialize()
 
 void CInGame::Terminate()
 {
-	m_pBackGround->Terminate();
+	m_pBackGroundA->Terminate();
+	m_pBackGroundB->Terminate();
+	m_pBackGround2->Terminate();
 	m_pPlayer->Terminate();
 	m_pEnemyManager->Terminate();
 	CBaseRender::Terminate();
@@ -29,7 +31,9 @@ void CInGame::Terminate()
 bool CInGame::Pulse()
 {
 	CBaseRender::Pulse();
-	m_pBackGround->Pulse();
+	m_pBackGroundA->Pulse();
+	m_pBackGroundB->Pulse();
+	m_pBackGround2->Pulse();
 	m_pPlayer->Pulse();
 	m_pEnemyManager->Pulse();
 	return true;
@@ -38,7 +42,9 @@ bool CInGame::Pulse()
 void CInGame::Render()
 {
 	CBaseRender::Render();
-	m_pBackGround->Render();
+	m_pBackGroundA->Render();
+	m_pBackGroundB->Render();
+	m_pBackGround2->Render();
 	m_pPlayer->Render();
 	m_pEnemyManager->Render();
 }

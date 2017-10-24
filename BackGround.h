@@ -8,7 +8,8 @@ public:
 	virtual ~CBackGround();
 
 public:
-	bool Initialize(); // 초기 설정
+	bool Initialize(int a); // 초기 설정
+	bool Initialize(int a,int b);
 	void Terminate(); // 제거
 	bool Pulse(); // 매 프레임
 	void Render(); // 화면에 그림

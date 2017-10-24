@@ -161,10 +161,7 @@ bool CBullet::Pulse(int bulletType)
 			static unsigned int frame = 0;
 			static float deltaTime = 0;
 
-			if (frame > 2)
-			{
-				frame = 0;
-			}
+			if (frame > 2) { frame = 0; }
 
 			m_kImageInfo = m_pImageInfo[frame];
 			if (deltaTime >= 0.12f)
@@ -188,7 +185,7 @@ void CBullet::Render()
 	{
 		CBaseRender::RenderSet(m_vPos);
 		CBaseRender::Render(mat);
-		if (m_vPos.y <= -100) { SetActive(false); }
-		if (m_vPos.y >= 800) { SetActive(false); }
+		if (m_vPos.y <= 35) { SetActive(false); }
+		if (m_vPos.y >= 700) { SetActive(false); }
 	}
 }

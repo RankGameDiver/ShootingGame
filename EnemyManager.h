@@ -1,7 +1,5 @@
 #pragma once
 
-//class CBulletManager;
-
 class CEnemyManager : public CSingleton<CEnemyManager>
 {
 private:
@@ -17,10 +15,11 @@ public:
 	void Pulse();
 	void Terminate();
 
+	CPlayerInfo* m_player;
 	CEnemy* OnObject(int enemyType);
 	CEnemy* SetAct(int temp, bool bIsActive);
-	CPlayerInfo* m_player;
 	bool GetAct(int temp);
+
 	CImageInfo* GetCollision(int temp);
 	void CrashBullet(int temp);
 };

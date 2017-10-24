@@ -53,7 +53,8 @@
 #include "ImageManager.h"
 #include "MainProc.h"
 
-
+#include "Item.h"
+#include "ItemManager.h"
 #include "Bullet.h"
 #include "BulletManager.h"
 #include "PlayerInfo.h"

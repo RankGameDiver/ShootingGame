@@ -13,14 +13,30 @@ CBackGround::~CBackGround()
 }
 
 
-bool CBackGround::Initialize()
+bool CBackGround::Initialize(int a)
 {
 	CBaseRender::Initialize();
 
-	m_pImageInfo[0].SetRect(0, 0, 564, 3000);
+	m_pImageInfo[0].SetRect(0, 0, 1024, 3000);   //564
 
-	m_vPos.x = 0;
+	m_vPos.x = a;
 	m_vPos.y = 0;
+
+	m_vScale.x = 1.0f;
+	m_vScale.y = 1.0f;
+	m_vScale.z = 1.0f;
+
+	return true;
+}
+
+bool CBackGround::Initialize(int a,int b)
+{
+	CBaseRender::Initialize();
+
+	m_pImageInfo[0].SetRect(0, 0, 1024, 3000);   //564
+
+	m_vPos.x = a;
+	m_vPos.y = b;
 
 	m_vScale.x = 1.0f;
 	m_vScale.y = 1.0f;

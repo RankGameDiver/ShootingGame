@@ -6,7 +6,6 @@ CEnemy::CEnemy()
 
 	m_bIsActive = false;
 
-	m_nLife = MAX_ENEMY_LIFE;
 	move = true; 
 	m_type = 0;
 }
@@ -23,6 +22,9 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 	bulletList = new CBulletManager;
 	bulletList->Init(player);
 
+	item = new CItemManager;
+	item->Init(player);
+
 	frame = 0;
 	deltaTime = 0;
 	m_pImageInfo = new CImageInfo[8];
@@ -37,6 +39,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(50); // 생명 설정
 		CBaseRender::Load("./Images/리빙돌.png");
 		break;
 	case 1: // 바나나
@@ -47,6 +50,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/바나나.png");
 		break;
 	case 2: // 오너
@@ -57,6 +61,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/오너.png");
 		break;
 	case 3: // 토끼
@@ -67,6 +72,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/토끼.png");
 		break;
 	case 4: // 인형
@@ -77,6 +83,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/인형.png");
 		break;
 	case 5: // 콩
@@ -87,6 +94,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/콩.png");
 		break;
 	case 6: // 호두까기
@@ -97,6 +105,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/호두까기.png");
 		break;
 	case 7: // 강아지
@@ -107,6 +116,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/강아지.png");
 		break;
 	case 8: // 보라색
@@ -117,6 +127,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/보라색.png");
 		break;
 	case 9: // 호박
@@ -127,6 +138,7 @@ bool CEnemy::Initialize(Vector2D pos, CPlayerInfo* player)
 		{
 			m_pImageInfo[i].SetRect(i * m_vWH.x, 0, m_vWH.x, m_vWH.y);
 		}
+		SetLife(3);
 		CBaseRender::Load("./Images/호박.png");
 		break;
 	default:
@@ -176,18 +188,12 @@ bool CEnemy::Pulse()
 	if (move)
 	{
 		m_vPos.x += 1;
-		if (m_vPos.x >= 400)
-		{
-			move = false;
-		}
+		if (m_vPos.x >= 400)	move = false;
 	}
 	else
 	{
 		m_vPos.x -= 1;
-		if (m_vPos.x <= 10)
-		{
-			move = true;
-		}
+		if (m_vPos.x <= 10)		move = true;
 	}
 
 	CBaseObject::Pulse(m_vPos.x, m_vPos.y, m_vWH.x, m_vWH.y);
@@ -195,6 +201,7 @@ bool CEnemy::Pulse()
 	if (m_nLife <= 0)
 	{
 		m_bIsActive = false;
+		item = new CItemManager;
 		delete[] m_pImageInfo;
 	}
 
@@ -203,17 +210,14 @@ bool CEnemy::Pulse()
 
 void CEnemy::Render()
 {
-	if (GetActive())
-	{
-		POINT ptPosText;
+	POINT ptPosText;
 
-		ptPosText.x = m_vPos.x;
-		ptPosText.y = m_vPos.y;
+	ptPosText.x = m_vPos.x;
+	ptPosText.y = m_vPos.y;
 
-		g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
+	g_pGraphicManager->DrawTextFormat(m_vPos.x, m_vPos.y, 0xFFFF0000, "(%d,%d)", ptPosText.x, ptPosText.y);
 
-		CBaseRender::RenderSet(m_vPos);
-		CBaseObject::Render(mat);
-		bulletList->Render();
-	}
+	bulletList->Render();
+	CBaseRender::RenderSet(m_vPos);
+	CBaseObject::Render(mat);
 }

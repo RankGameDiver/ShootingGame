@@ -6,7 +6,7 @@ class CPlayerInfo;
 class CBulletManager : public CBaseObject
 {
 private:
-	CBullet* bulletList[50];
+	CBullet* bulletList[100];
 	CPlayerInfo* m_player;
 
 public :

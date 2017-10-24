@@ -13,9 +13,9 @@ bool CGameMenu::Initialize()
 {
 	CInGame::Initialize();
 
-	m_pBackGround = new CBackGround();
-	m_pBackGround->Initialize();
-	m_pBackGround->Load("./Images/Menu.png");
+	m_pBackGroundA = new CBackGround();
+	m_pBackGroundA->Initialize(0);
+	m_pBackGroundA->Load("./Images/Menu.png");
 
 	RECT rc = { 0, 200, 755, 405 };
 	if (PtInRect, &rc)

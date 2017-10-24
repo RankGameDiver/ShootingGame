@@ -20,7 +20,7 @@ void CEnemyManager::Initialize(CPlayerInfo* player)
 		enemyList[i]->Initialize(Vector2D(100, 100), player);
 		enemyList[i]->SetActive(false);
 	}
-	
+	m_player = player;
 }
 
 void CEnemyManager::Render()
@@ -84,5 +84,5 @@ CImageInfo* CEnemyManager::GetCollision(int temp)
 
 void CEnemyManager::CrashBullet(int temp)
 {
-	enemyList[temp]->DecrementLife();
+	enemyList[temp]->DecrementLife(m_player->GetDamage());
 }

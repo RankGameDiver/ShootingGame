@@ -31,6 +31,7 @@ protected:
 	int maxFrame;
 
 	CBulletManager* bulletList;
+	CItemManager*	item;
 	CPlayerInfo* m_player;
 
 public:
@@ -42,7 +43,7 @@ public:
 	_inline bool GetActive() const;
 
 	_inline void SetLife(int hp); // 잡몹들은 모두 체력 3
-	_inline void DecrementLife(); // 피격시 실행
+	_inline void DecrementLife(int damage); // 피격시 실행
 	_inline int GetLife() const; // 현재 체력을 반환
 
 	__inline D3DXVECTOR3 GetPos(); // 시작 위치 반환
@@ -61,7 +62,6 @@ _inline void CEnemy::SetActive(bool life)
 {
 	m_bIsActive = life;
 }
-
 _inline bool CEnemy::GetActive() const
 {
 	return m_bIsActive;
@@ -71,12 +71,10 @@ _inline void CEnemy::SetLife(int hp)
 {
 	m_nLife = hp;
 }
-
-_inline void CEnemy::DecrementLife()
+_inline void CEnemy::DecrementLife(int damage)
 {
-	m_nLife--;
+	m_nLife -= damage;
 }
-
 _inline int CEnemy::GetLife() const
 {
 	return m_nLife;
@@ -86,7 +84,6 @@ __inline D3DXVECTOR3 CEnemy::GetPos() // 시작 위치 반환
 {
 	return m_vPos;
 }
-
 __inline D3DXVECTOR3 CEnemy::GetScale() // 시작 위치 반환
 {
 	return m_vPos;
@@ -96,7 +93,6 @@ __inline void CEnemy::SetEnemyType(int enemyType)
 {
 	m_type = enemyType;
 }
-
 __inline int CEnemy::GetEnemyType()
 {
 	return m_type;

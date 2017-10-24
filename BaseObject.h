@@ -6,6 +6,7 @@ class CBaseObject :	public CBaseRender,
 {
 protected:
 	SIZE	m_siCollision;
+	RECT	temp;
 	POINT	m_ptCollisionOffset; // 콜라이더 중심점
 
 	CImageInfo		m_kCollision;
@@ -25,5 +26,6 @@ public:
 
 public:
 	bool Pulse(int x, int y, int w, int h);
+
 };
 

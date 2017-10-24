@@ -12,9 +12,9 @@ bool CThirdStage::Initialize()
 {
 	CInGame::Initialize();
 
-	m_pBackGround = new CBackGround();
-	m_pBackGround->Initialize();
-	m_pBackGround->Load("./Images/인게임배경3.png");
+	m_pBackGroundA = new CBackGround();
+	m_pBackGroundA->Initialize(0);
+	m_pBackGroundA->Load("./Images/인게임배경3.png");
 
 	m_pPlayer = new CPlayerInfo();
 	m_pPlayer->Initialize();

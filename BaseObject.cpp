@@ -2,6 +2,7 @@
 
 CBaseObject::CBaseObject()
 {
+
 	m_siCollision.cx = 0;
 	m_siCollision.cy = 0;
 	m_ptCollisionOffset.x = 0;
@@ -35,7 +36,6 @@ bool CBaseObject::CheckCollision(Vector2D vPos) // 콜라이더 충돌 체크(좌표로 충�
 
 bool CBaseObject::CheckCollision(CImageInfo* collision1, CImageInfo* collision2) // 콜라이더 충돌 체크
 {
-
 	int left1 = collision1->left;
 	int right1 = collision1->right;
 	int top1 = collision1->top;
@@ -46,13 +46,20 @@ bool CBaseObject::CheckCollision(CImageInfo* collision1, CImageInfo* collision2)
 	int top2 = collision2->top;
 	int bottom2 = collision2->bottom;
 
-	if (left1 >= left2 && right1 <= right2 && top1 == bottom2)
+	/*if(IntersectRect(&temp, &A, &B))
+		return true;*/
+
+	
+	if (left1 >= left2 && right1 <= right2)
 	{
-		return true;
-	}
-	else if (left1 >= left2 && right1 <= right2 && top2 == bottom1)
-	{
-		return true;
+		if (top1 >= bottom2 && top1 - 10 <= bottom2)
+		{
+			return true;
+		}
+		else if (bottom1 >= top2 && top1 + 10 >= bottom1)
+		{
+			return true;
+		}
 	}
 
 	return false;

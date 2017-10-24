@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#define MAXBULLET 50
+#define MAXBULLET 100
 
 CBulletManager::CBulletManager()
 {
